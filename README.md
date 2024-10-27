@@ -1,12 +1,7 @@
-- 👋 Hi, I’m @AlaaBashirSaijary
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
-
-<!---
-AlaaBashirSaijary/AlaaBashirSaijary is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+👋 Hi, I’m @AlaaBashirSaijary
+👀 I’m interested in software development, mobile app development, and artificial intelligence.
+🌱 I’m currently learning more about machine learning and cloud technologies.
+💞️ I’m looking to collaborate on open-source projects, especially in the fields of web and mobile applications.
+📫 How to reach me: seijeryalaa@gmail.com
+😄 Pronouns: she/hir
+⚡ Fun fact: I love exploring new technologies and enjoy hiking on the weekends!
