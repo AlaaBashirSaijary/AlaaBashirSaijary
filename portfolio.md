@@ -8,7 +8,7 @@
 - Quran reader offline + prayer times notifications.  
 - Built with: **Flutter, Firebase, Provider**.  
 - **500+ مستخدم**.  
-🔗 [GitHub](https://github.com/AlaaBashirSaijary/quran-app) | [Google Play](#) *(اضف الرابط لاحقًا)*  
+🔗 [GitHub](https://github.com/AlaaBashirSaijary/quran-app)  
 
 ### 2. Salon Booking App (Flutter)  
 💇 تطبيق حجز مواعيد صالونات:  
@@ -30,5 +30,4 @@
 
 ## 📬 Contact Me  
 - ✉️ Email: alaabashersaijary@gmail.com  
-- 💼 LinkedIn: [رابط LinkedIn](#) *(اضفه لاحقًا)*  
-- 📱 Phone: +963 984668063  
+- 💼 LinkedIn: [Alaa Saijary](https://www.linkedin.com/in/alaa-basher-saijary-b48002378/)
