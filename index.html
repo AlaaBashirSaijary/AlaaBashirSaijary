@@ -21,7 +21,8 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-.wrap{max-width:1240px;margin-inline:auto;padding-inline:clamp(18px,4vw,40px)}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:max(clamp(18px,4vw,40px),env(safe-area-inset-left),env(safe-area-inset-right))}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 h1,h2,h3{font-family:var(--head);line-height:1.15}
 .eyebrow{font-family:var(--head);font-weight:600;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);margin-bottom:14px}
 html[lang=ar] .eyebrow{letter-spacing:0;font-size:.95rem}
@@ -70,7 +71,21 @@ header.nav .wrap{display:flex;justify-content:space-between;align-items:center;p
 .menu a:not(.btn)::after{content:"";position:absolute;inset-inline:0;bottom:-6px;height:2px;background:var(--sage);transform:scaleX(0);transition:transform .4s var(--out)}
 .menu a:not(.btn):hover::after{transform:scaleX(1)}
 .menu .btn{padding:12px 24px}
-@media(max-width:860px){.menu a:not(.btn){display:none}.topbar .items a:nth-child(2){display:none}}
+.burger{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:0}
+.burger i{display:block;width:22px;height:2px;background:var(--green);border-radius:2px;transition:transform .35s var(--out),opacity .2s}
+.burger[aria-expanded=true] i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] i:nth-child(2){opacity:0}
+.burger[aria-expanded=true] i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:860px){
+  .burger{display:flex}
+  .menu{position:absolute;top:100%;inset-inline:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:6px max(clamp(18px,4vw,40px),env(safe-area-inset-left)) 22px;box-shadow:0 24px 40px rgba(15,31,32,.16);clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .5s var(--out),visibility 0s .5s}
+  .menu.open{clip-path:inset(0 0 -40px 0);visibility:visible;transition:clip-path .5s var(--out)}
+  .menu a:not(.btn){padding:15px 0;border-bottom:1px solid var(--line);font-size:1.08rem}
+  .menu a:not(.btn)::after{display:none}
+  .menu .btn{margin-top:16px;justify-content:center;padding:15px 24px}
+}
+@media(max-width:640px){.topbar .items a:not(:first-child){display:none}.topbar .wrap{flex-wrap:nowrap}.topbar .items a{font-size:.85rem;white-space:nowrap}.brand{font-size:1.2rem}}
+@media(max-width:360px){.topbar .items a{font-size:.78rem}.topbar svg{display:none}.langbtn{padding:2px 10px;font-size:.85rem}}
 
 /* hero */
 .hero{background:linear-gradient(115deg,#0f2a2c 0%,var(--green) 55%,#235a5d 100%);color:#fff;position:relative;overflow:hidden}
@@ -94,7 +109,8 @@ html[lang=ar] .hero h1{line-height:1.35;letter-spacing:0}
 .chip small{display:block;font:500 .72rem var(--body);color:var(--mute)}
 .chip.c1{inset-inline-end:0;top:18%;animation-delay:-1s}
 .chip.c2{inset-inline-start:0;bottom:16%;animation-delay:-2.5s}
-@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.stage{order:-1;height:420px}}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:28px}.stage{height:430px;overflow:hidden}.stage .phone{width:min(190px,46vw)}.phone.back{width:min(150px,36vw)}.hero .cta .btn{flex:1 1 200px;justify-content:center}}
+@media(max-width:420px){.phone.back{inset-inline-start:-4%}.chip{padding:8px 12px;font-size:.82rem}.chip.c1{inset-inline-end:-2%}.chip.c2{inset-inline-start:-2%}}
 
 /* features strip */
 .strip{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
@@ -126,13 +142,14 @@ main{overflow-x:clip}
 .badge.b2 span{color:#dfeceb}
 .badge:hover{transform:translateY(-8px)}
 .about p.txt{color:var(--mute);font-size:1.08rem;margin-bottom:26px;max-width:58ch}
-.checks{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-bottom:34px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-bottom:34px;padding:0}
 .checks li{list-style:none;display:flex;align-items:center;gap:12px;font-weight:500}
 .checks li::before{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/16px no-repeat}
 .sign{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
 .sign .name{font:italic 300 2.6rem "Fraunces",serif;color:var(--green);line-height:1}
 .sign small{display:block;font:600 1rem var(--head);margin-top:6px}
-@media(max-width:900px){.about .wrap{grid-template-columns:1fr}.checks{grid-template-columns:1fr}}
+@media(max-width:900px){.about .wrap{grid-template-columns:1fr}.collage{aspect-ratio:auto;display:grid;grid-template-columns:1fr 1fr;gap:14px}.card-big{position:relative;inset:auto;grid-column:1/-1;min-height:190px}.badge{position:static;padding:18px 20px}.badge.b2{border-width:4px}}
+@media(max-width:560px){.checks{grid-template-columns:1fr}}
 
 /* featured app */
 .app{background:var(--mist)}
@@ -142,6 +159,7 @@ main{overflow-x:clip}
 .shots{background:var(--green);border-radius:24px;padding:clamp(24px,4vw,44px);display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;align-items:center;position:relative}
 .shots .phone{flex:none;width:200px;transform:none;animation:none;scroll-snap-align:center;transition:transform .5s var(--out)}
 .shots .phone:hover{transform:translateY(-12px) rotate(-1.5deg)}
+@media(max-width:560px){.shots{padding:22px;gap:14px;-webkit-overflow-scrolling:touch}.shots .phone{width:170px}}
 .shots::-webkit-scrollbar{height:6px}.shots::-webkit-scrollbar-thumb{background:var(--sage);border-radius:9px}
 .capab{background:var(--green);color:#fff;border-radius:24px;padding:clamp(26px,4vw,40px);position:relative;overflow:hidden}
 .capab::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 2px,transparent 2px 38px);pointer-events:none}
@@ -179,7 +197,7 @@ main{overflow-x:clip}
 .step h3{font-weight:700;font-size:1.3rem;color:var(--green);margin-bottom:10px}
 .step p{color:var(--mute);font-size:.97rem}
 @media(max-width:900px){.steps{grid-template-columns:1fr 1fr}.steps::before{display:none}}
-@media(max-width:560px){.steps{grid-template-columns:1fr}}
+@media(max-width:560px){.steps{grid-template-columns:1fr;gap:18px}.step .box{min-height:0;padding:50px 22px 24px}}
 
 /* projects */
 .projects .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
@@ -243,13 +261,14 @@ footer a:hover{color:#fff}
 
 <header class="nav" id="nav"><div class="wrap">
   <a href="#top" class="brand">Alaa Saijary<small data-en="Mobile &amp; Web Developer" data-ar="مطوّرة تطبيقات موبايل وويب">Mobile &amp; Web Developer</small></a>
-  <nav class="menu">
+  <nav class="menu" id="menu">
     <a href="#top" data-en="Home" data-ar="الرئيسية">Home</a>
     <a href="#app" data-en="Featured App" data-ar="التطبيق المميز">Featured App</a>
     <a href="#projects" data-en="Projects" data-ar="المشاريع">Projects</a>
     <a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a>
     <a class="btn" href="#contact" data-en="Let's Talk" data-ar="لنتحدث">Let's Talk</a>
   </nav>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
 </div></header>
 
 <main id="top">
@@ -425,6 +444,14 @@ footer a:hover{color:#fff}
     document.getElementById('h1').classList.add('in');
     observe();
   }, reduce?0:1300);
+
+  // mobile menu
+  var burger=document.getElementById('burger'), menu=document.getElementById('menu');
+  function toggle(open){ burger.setAttribute('aria-expanded',open); menu.classList.toggle('open',open); }
+  burger.addEventListener('click',function(){ toggle(burger.getAttribute('aria-expanded')!=='true'); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ toggle(false); }); });
+  addEventListener('keydown',function(e){ if(e.key==='Escape') toggle(false); });
+  addEventListener('resize',function(){ if(innerWidth>860) toggle(false); });
 
   // scroll: progress bar + sticky shadow
   var prog=document.getElementById('progress'), nav=document.getElementById('nav');
