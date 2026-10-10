@@ -33,9 +33,21 @@ PAGES = {
         'ar': ('عيادتي: تطبيق إدارة عيادات طبية يعمل بلا إنترنت',
                'عيادتي تطبيق لإدارة العيادات الطبية يعمل بلا إنترنت: سجلات المرضى والمواعيد والوصفات والتقارير بواجهة عربية. دفعة واحدة بلا اشتراك وتجربة مجانية 14 يوماً.')}},
 }
+PAGES['school'] = {'path': 'school-management-system/', 'src': 'school.html', 'og': 'og-school', 'meta': {
+    'en': ('Education ERP: School Management System with QR Attendance and Fees',
+           'Education ERP is a school management system: QR attendance, grades and report cards, fees and receipts, WhatsApp/SMS parent alerts and timetables. Arabic and English, with a mobile app and live demo.'),
+    'ar': ('Education ERP: نظام إدارة مدارس بحضور QR وأقساط وإشعارات للأهل',
+           'Education ERP نظام لإدارة المدارس: حضور بالـ QR، علامات وشهادات، أقساط وإيصالات، إشعارات واتساب/SMS لأولياء الأمور وجداول حصص. عربي وإنجليزي مع تطبيق موبايل وعرض تفاعلي.')}}
 CRUMB = {'en': 'Home', 'ar': 'الرئيسية'}
 CLINIC_NAME = {'en': 'Aayadati: clinic management app', 'ar': 'عيادتي: تطبيق إدارة العيادات'}
+PAGE_NAME = {'clinic': CLINIC_NAME, 'school': {'en': 'Education ERP: school management system', 'ar': 'Education ERP: نظام إدارة المدارس'}}
 ROLE = {'en': 'Mobile & Web Developer', 'ar': 'مطوّرة تطبيقات موبايل وويب'}
+APPS = {
+    'clinic': {'name': 'Aayadati', 'alternateName': ['عيادتي', 'Clinic Manager'], 'applicationCategory': 'HealthApplication',
+               'operatingSystem': 'iPadOS, Android', 'inLanguage': 'ar'},
+    'school': {'name': 'Education ERP System', 'alternateName': ['نظام إدارة المدارس', 'School Management System'],
+               'applicationCategory': 'EducationalApplication', 'operatingSystem': 'Web (PWA)', 'inLanguage': ['ar', 'en']},
+}
 LOCALE = {'en': 'en_US', 'ar': 'ar_AR'}
 
 
@@ -56,6 +68,8 @@ def rel_links(lang, page):
     other = 'ar' if lang == 'en' else 'en'
     return {
         '{{root}}': root, '{{home}}': home, '{{clinic}}': home + 'clinic-manager/' if page != 'clinic' else './',
+        '{{school}}': home + 'school-management-system/' if page != 'school' else './',
+        '{{school}}': home + 'school-management-system/' if page != 'school' else './',
         '{{other}}': (root + out_dir(other, page)) or './',
         '{{other_lang}}': other,
         '{{cv}}': root + ('cv/Alaa-Saijary-CV.pdf' if lang == 'en' else 'cv/Alaa-Saijary-CV-ar.pdf'),
@@ -108,7 +122,7 @@ def json_ld(soup, lang, page):
              'mainEntity': person, 'isPartOf': {'@id': SITE + '#website'}},
             {'@type': 'MobileApplication', 'name': 'Lirati', 'url': 'https://lirati.app/invite',
              'applicationCategory': 'FinanceApplication', 'operatingSystem': 'iOS, Android', 'author': person},
-            {'@type': 'SoftwareApplication', 'name': 'Education ERP System', 'url': 'https://alaabashirsaijary.github.io/Education-ERP-System/',
+            {'@type': 'SoftwareApplication', 'name': 'Education ERP System', 'url': page_url(lang, 'school'),
              'applicationCategory': 'EducationalApplication', 'operatingSystem': 'Web', 'inLanguage': ['ar', 'en'],
              'author': person},
             {'@type': 'MobileApplication', 'name': 'Manhaj Hayah', 'alternateName': 'منهج حياة', 'url': MANHAJ,
@@ -117,16 +131,15 @@ def json_ld(soup, lang, page):
         ]
     else:
         feats = [text(h) for h in soup.select('#features .fcard h3')]
+        app = APPS[page]
         graph += [
             {'@type': 'BreadcrumbList', 'itemListElement': [
                 {'@type': 'ListItem', 'position': 1, 'name': CRUMB[lang], 'item': page_url(lang, 'home')},
-                {'@type': 'ListItem', 'position': 2, 'name': CLINIC_NAME[lang], 'item': url}]},
+                {'@type': 'ListItem', 'position': 2, 'name': PAGE_NAME[page][lang], 'item': url}]},
             {'@type': 'WebPage', '@id': url + '#page', 'url': url, 'name': title, 'description': desc, 'inLanguage': lang,
              'isPartOf': {'@id': SITE + '#website'}, 'about': {'@id': url + '#app'}},
-            {'@type': 'SoftwareApplication', '@id': url + '#app', 'name': 'Aayadati', 'alternateName': ['عيادتي', 'Clinic Manager'],
-             'applicationCategory': 'HealthApplication', 'operatingSystem': 'iPadOS, Android', 'inLanguage': 'ar',
-             'description': desc, 'url': url, 'featureList': feats, 'author': {'@type': 'Person', '@id': SITE + '#person',
-                                                                             'name': 'Alaa Bashir Saijary'}},
+            dict({'@type': 'SoftwareApplication', '@id': url + '#app', 'description': desc, 'url': url, 'featureList': feats,
+                  'author': {'@type': 'Person', '@id': SITE + '#person', 'name': 'Alaa Bashir Saijary'}}, **app),
         ]
     if faq:
         graph.append({'@type': 'FAQPage', 'mainEntity': faq})

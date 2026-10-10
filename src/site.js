@@ -5,16 +5,24 @@
   var h1 = document.getElementById('h1');
   if (h1) {
     var tmp = document.createElement('div'); tmp.innerHTML = h1.innerHTML;
-    var out = '', i = 0;
+    var toks = [];
     (function walk(n, em) {
       n.childNodes.forEach(function (c) {
         if (c.nodeType === 3) {
-          c.textContent.split(/\s+/).filter(Boolean).forEach(function (w) {
-            out += '<span style="margin-inline-end:.25em"><i style="--i:' + (i++) + '">' + (em ? '<em>' + w + '</em>' : w) + '</i></span>';
-          });
+          c.textContent.split(/\s+/).filter(Boolean).forEach(function (w) { toks.push({ w: w, em: em }); });
         } else walk(c, em || c.nodeName === 'EM');
       });
     })(tmp, false);
+    // Keep neighbouring Latin words together ("Education ERP") so right-to-left pages do not reverse them.
+    var units = [];
+    toks.forEach(function (t) {
+      var last = units[units.length - 1];
+      if (last && last.em === t.em && /^[\x00-\x7F]+$/.test(t.w) && /^[\x00-\x7F ]+$/.test(last.w)) last.w += ' ' + t.w;
+      else units.push({ w: t.w, em: t.em });
+    });
+    var out = units.map(function (u, i) {
+      return '<span style="margin-inline-end:.25em"><i style="--i:' + i + '">' + (u.em ? '<em>' + u.w + '</em>' : u.w) + '</i></span>';
+    }).join('');
     h1.setAttribute('aria-label', h1.textContent.replace(/\s+/g, ' ').trim());
     h1.innerHTML = out;
     requestAnimationFrame(function () { requestAnimationFrame(function () { h1.classList.add('in'); }); });
