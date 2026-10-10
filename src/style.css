@@ -341,3 +341,7 @@ footer a:hover{color:#fff}
 .sk{grid-template-columns:repeat(3,1fr)}
 @media(max-width:900px){.sk{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.sk{grid-template-columns:1fr}}
+.pcard.wide{grid-column:1/-1;min-height:0}
+.pcard.wide h3{margin-top:44px}
+.pcard.wide p{max-width:78ch}
+@media(max-width:900px){.pcard.wide{grid-column:auto}}
