@@ -12,20 +12,29 @@
 - متوفر لأندرويد فقط حالياً (Android 7.0+)، وموزّع عبر موقع التطبيق وUptodown.  
 🔗 [تحميل التطبيق وشرح التثبيت](https://alaabashirsaijary.github.io/manhaj-hayah/get/?s=ig) | [موقع التطبيق](https://alaabashirsaijary.github.io/manhaj-hayah/) | [مستودع الموقع على GitHub](https://github.com/AlaaBashirSaijary/manhaj-hayah)  
 
-### 2. Quran & Azkar App (Flutter)  
+### عيادتي | Aayadati: Clinic Manager (Flutter, iPad & Android)  
+💊 تطبيق لإدارة العيادات الطبية يعمل بلا إنترنت بالكامل وبواجهة عربية: سجلات المرضى، المواعيد، الوصفات، التقارير الطبية والمالية. قاعدة SQLite محلية وبنية Clean Architecture مع Riverpod.  
+- دفعة واحدة بلا اشتراك، وتجربة مجانية 14 يوماً.  
+🔗 [صفحة التطبيق](https://alaabashirsaijary.github.io/AlaaBashirSaijary/clinic-manager/) | [موقع المنتج](https://alaabashirsaijary.github.io/ClinicManagerFlutter/)  
+
+### Lirati (Mobile, iOS & Android)  
+💸 تطبيق تحويلات مالية رقمية طوّرته في شركة Kaymn (2025): إرسال واستقبال وإدارة الرصيد، مصادقة آمنة وتحديثات فورية، ومنشور على App Store وGoogle Play.  
+🔗 [Lirati](https://lirati.app/invite)  
+
+### Quran & Azkar App (Flutter)  
 📱 تطبيق قرآن وأذكار بميزات متقدمة:  
 - Quran reader offline + prayer times notifications.  
 - Built with: **Flutter, Firebase, Provider**.  
 - **500+ مستخدم**.  
 🔗 [GitHub](https://github.com/AlaaBashirSaijary/quran-app)  
 
-### 3. Salon Booking App (Flutter)  
+### Salon Booking App (Flutter)  
 💇 تطبيق حجز مواعيد صالونات:  
 - Real-time bookings + notifications.  
 - Built with: **Flutter, Firebase**.  
 🔗 [GitHub](https://github.com/AlaaBashirSaijary/salon-app)  
 
-### 4. Sweet E-commerce (Laravel)  
+### Sweet E-commerce (Laravel)  
 🍰 موقع بيع حلويات:  
 - Product management + cart system.  
 - Built with: **Laravel, MySQL, Blade**.  
