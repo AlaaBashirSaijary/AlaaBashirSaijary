@@ -222,6 +222,8 @@ def main():
     for pdf in (ROOT / 'cv').glob('*.pdf'):
         shutil.copy(pdf, OUT / 'cv' / pdf.name)
     (OUT / '.nojekyll').write_text('')
+    for f in ROOT.glob('google*.html'):  # Search Console ownership verification files
+        shutil.copy(f, OUT / f.name)
     for page in PAGES:
         for lang in LANGS:
             build_page(lang, page, css_v, js_v)
