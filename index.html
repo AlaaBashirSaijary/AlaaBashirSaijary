@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Alaa Saijary | Mobile & Web Developer</title>
 <meta name="description" content="Alaa Bashir Saijary — computer engineer building Flutter mobile apps and Laravel web solutions. ألاء بشير سيجري: مهندسة حاسوب ومطوّرة تطبيقات موبايل وويب.">
-<meta name="theme-color" content="#16373a">
+<meta name="theme-color" content="#4a1942">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fira+Sans:wght@600;700;800&family=Cairo:wght@400;600;700;800&family=Fraunces:ital,wght@1,300&display=swap">
 <style>
 :root{
-  --green:#16373a; --green2:#1d4a4d; --sage:#8fa9a6; --mist:#e6eded; --paper:#fff; --ink:#0f1f20; --mute:#56696a; --line:rgba(22,55,58,.14);
+  --deep:#4a1942; --deep2:#62275a; --rose:#e7a9c3; --blush:#fbeff4; --paper:#fff; --ink:#2a1126; --mute:#6e5566; --line:rgba(74,25,66,.14); --rose-ink:#b0457a;
   --head:"Fira Sans","Cairo",sans-serif; --body:"DM Sans","Cairo",sans-serif;
   --out:cubic-bezier(.16,1,.3,1);
 }
@@ -24,13 +24,13 @@ img{max-width:100%;display:block}
 .wrap{max-width:1240px;margin-inline:auto;padding-inline:max(clamp(18px,4vw,40px),env(safe-area-inset-left),env(safe-area-inset-right))}
 html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 h1,h2,h3{font-family:var(--head);line-height:1.15}
-.eyebrow{font-family:var(--head);font-weight:600;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);margin-bottom:14px}
+.eyebrow{font-family:var(--head);font-weight:600;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rose-ink);margin-bottom:14px}
 html[lang=ar] .eyebrow{letter-spacing:0;font-size:.95rem}
 h2{font-weight:800;font-size:clamp(2rem,4.4vw,3.4rem);letter-spacing:-.01em;margin-bottom:20px}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#fff;border:0;padding:15px 30px;border-radius:8px;font:600 1rem var(--head);cursor:pointer;transition:transform .35s var(--out),background .3s,box-shadow .3s;will-change:transform}
-.btn:hover{background:var(--green2);box-shadow:0 14px 30px rgba(22,55,58,.28);transform:translateY(-3px)}
-.btn.light{background:var(--sage);color:var(--green)}
-.btn.light:hover{background:#a3bbb8}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--deep);color:#fff;border:0;padding:15px 30px;border-radius:8px;font:600 1rem var(--head);cursor:pointer;transition:transform .35s var(--out),background .3s,box-shadow .3s;will-change:transform}
+.btn:hover{background:var(--deep2);box-shadow:0 14px 30px rgba(74,25,66,.28);transform:translateY(-3px)}
+.btn.light{background:var(--rose);color:var(--deep)}
+.btn.light:hover{background:#f0bfd3}
 .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.4)}
 .btn.ghost:hover{background:rgba(255,255,255,.1)}
 
@@ -45,40 +45,40 @@ h2{font-weight:800;font-size:clamp(2rem,4.4vw,3.4rem);letter-spacing:-.01em;marg
 .words.in span i{transform:none}
 
 /* loader */
-.loader{position:fixed;inset:0;z-index:100;background:var(--green);display:grid;place-items:center;transition:clip-path .9s cubic-bezier(.76,0,.24,1);clip-path:inset(0 0 0 0)}
+.loader{position:fixed;inset:0;z-index:100;background:var(--deep);display:grid;place-items:center;transition:clip-path .9s cubic-bezier(.76,0,.24,1);clip-path:inset(0 0 0 0)}
 .loader.done{clip-path:inset(0 0 100% 0)}
 .loader b{font:800 clamp(2rem,6vw,3.6rem) var(--head);color:#fff;letter-spacing:.02em;animation:pulse 1.2s ease-in-out infinite alternate}
-.loader b em{color:var(--sage);font-style:normal}
+.loader b em{color:var(--rose);font-style:normal}
 @keyframes pulse{from{opacity:.4}to{opacity:1}}
-.progress{position:fixed;top:0;inset-inline:0;height:3px;background:var(--sage);transform:scaleX(0);transform-origin:left;z-index:70}
+.progress{position:fixed;top:0;inset-inline:0;height:3px;background:var(--rose);transform:scaleX(0);transform-origin:left;z-index:70}
 [dir=rtl] .progress{transform-origin:right}
 
 /* top bar + nav */
-.topbar{background:var(--green);color:#dfeceb;font-size:.9rem}
+.topbar{background:var(--deep);color:#f7e3ec;font-size:.9rem}
 .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:10px;flex-wrap:wrap}
 .topbar .items{display:flex;gap:28px;flex-wrap:wrap}
 .topbar a:hover{color:#fff}
-.topbar svg{width:16px;height:16px;vertical-align:-3px;margin-inline-end:8px;fill:none;stroke:var(--sage);stroke-width:2}
+.topbar svg{width:16px;height:16px;vertical-align:-3px;margin-inline-end:8px;fill:none;stroke:var(--rose);stroke-width:2}
 .langbtn{background:none;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:99px;padding:2px 14px;font:inherit;cursor:pointer}
 .langbtn:hover{background:rgba(255,255,255,.12)}
 header.nav{position:sticky;top:0;z-index:60;background:#fff;transition:box-shadow .3s}
-header.nav.stuck{box-shadow:0 8px 28px rgba(15,31,32,.1)}
+header.nav.stuck{box-shadow:0 8px 28px rgba(42,17,38,.1)}
 header.nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:16px;gap:20px}
-.brand{font:800 1.35rem/1.15 var(--head);color:var(--green)}
+.brand{font:800 1.35rem/1.15 var(--head);color:var(--deep)}
 .brand small{display:block;font:500 .78rem var(--body);color:var(--mute)}
 .menu{display:flex;align-items:center;gap:34px;font:600 1rem var(--head)}
-.menu a:not(.btn){position:relative;color:var(--green)}
-.menu a:not(.btn)::after{content:"";position:absolute;inset-inline:0;bottom:-6px;height:2px;background:var(--sage);transform:scaleX(0);transition:transform .4s var(--out)}
+.menu a:not(.btn){position:relative;color:var(--deep)}
+.menu a:not(.btn)::after{content:"";position:absolute;inset-inline:0;bottom:-6px;height:2px;background:var(--rose);transform:scaleX(0);transition:transform .4s var(--out)}
 .menu a:not(.btn):hover::after{transform:scaleX(1)}
 .menu .btn{padding:12px 24px}
 .burger{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:0}
-.burger i{display:block;width:22px;height:2px;background:var(--green);border-radius:2px;transition:transform .35s var(--out),opacity .2s}
+.burger i{display:block;width:22px;height:2px;background:var(--deep);border-radius:2px;transition:transform .35s var(--out),opacity .2s}
 .burger[aria-expanded=true] i:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger[aria-expanded=true] i:nth-child(2){opacity:0}
 .burger[aria-expanded=true] i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:860px){
   .burger{display:flex}
-  .menu{position:absolute;top:100%;inset-inline:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:6px max(clamp(18px,4vw,40px),env(safe-area-inset-left)) 22px;box-shadow:0 24px 40px rgba(15,31,32,.16);clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .5s var(--out),visibility 0s .5s}
+  .menu{position:absolute;top:100%;inset-inline:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:6px max(clamp(18px,4vw,40px),env(safe-area-inset-left)) 22px;box-shadow:0 24px 40px rgba(42,17,38,.16);clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .5s var(--out),visibility 0s .5s}
   .menu.open{clip-path:inset(0 0 -40px 0);visibility:visible;transition:clip-path .5s var(--out)}
   .menu a:not(.btn){padding:15px 0;border-bottom:1px solid var(--line);font-size:1.08rem}
   .menu a:not(.btn)::after{display:none}
@@ -88,16 +88,16 @@ header.nav .wrap{display:flex;justify-content:space-between;align-items:center;p
 @media(max-width:360px){.topbar .items a{font-size:.78rem}.topbar svg{display:none}.langbtn{padding:2px 10px;font-size:.85rem}}
 
 /* hero */
-.hero{background:linear-gradient(115deg,#0f2a2c 0%,var(--green) 55%,#235a5d 100%);color:#fff;position:relative;overflow:hidden}
+.hero{background:linear-gradient(115deg,#2e0f2a 0%,var(--deep) 55%,#7a2f6b 100%);color:#fff;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(600px circle at var(--mx,75%) var(--my,40%),rgba(143,169,166,.28),transparent 60%),
+  radial-gradient(600px circle at var(--mx,75%) var(--my,40%),rgba(231,169,195,.28),transparent 60%),
   repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 2px,transparent 2px 46px)}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-block:clamp(60px,9vw,120px)}
-.hero .eyebrow{color:#b9cfcc}
+.hero .eyebrow{color:#f0c6d8}
 .hero h1{font-weight:800;font-size:clamp(2.6rem,6.2vw,5.2rem);letter-spacing:-.02em;margin-bottom:24px}
 html[lang=ar] .hero h1{line-height:1.35;letter-spacing:0}
-.hero h1 em{font-style:normal;color:var(--sage)}
-.hero p.lede{font-size:clamp(1.05rem,1.6vw,1.3rem);color:#d3e2e0;max-width:50ch;margin-bottom:34px}
+.hero h1 em{font-style:normal;color:var(--rose)}
+.hero p.lede{font-size:clamp(1.05rem,1.6vw,1.3rem);color:#f3dce8;max-width:50ch;margin-bottom:34px}
 .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
 .stage{position:relative;height:min(560px,70vw);display:grid;place-items:center;perspective:1000px}
 .phone{position:relative;width:min(250px,56vw);aspect-ratio:9/19;border-radius:34px;background:#0a1819;border:7px solid #0a1819;box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 0 2px rgba(255,255,255,.12);overflow:hidden;transform:rotateY(-14deg) rotateX(4deg);transition:transform .25s ease-out;animation:float 6s ease-in-out infinite;background-image:linear-gradient(160deg,#1f5e3b,#0d3325)}
@@ -105,7 +105,7 @@ html[lang=ar] .hero h1{line-height:1.35;letter-spacing:0}
 .phone.back{position:absolute;width:min(200px,44vw);inset-inline-start:2%;top:14%;opacity:.8;transform:rotateY(14deg) rotateX(4deg) scale(.92);animation-delay:-3s;z-index:0}
 .stage .phone.main{z-index:2}
 @keyframes float{50%{translate:0 -14px}}
-.chip{position:absolute;z-index:3;background:#fff;color:var(--green);border-radius:14px;padding:10px 16px;font:700 .9rem var(--head);box-shadow:0 18px 40px rgba(0,0,0,.28);animation:float 5s ease-in-out infinite}
+.chip{position:absolute;z-index:3;background:#fff;color:var(--deep);border-radius:14px;padding:10px 16px;font:700 .9rem var(--head);box-shadow:0 18px 40px rgba(0,0,0,.28);animation:float 5s ease-in-out infinite}
 .chip small{display:block;font:500 .72rem var(--body);color:var(--mute)}
 .chip.c1{inset-inline-end:0;top:18%;animation-delay:-1s}
 .chip.c2{inset-inline-start:0;bottom:16%;animation-delay:-2.5s}
@@ -116,12 +116,12 @@ html[lang=ar] .hero h1{line-height:1.35;letter-spacing:0}
 .strip{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
 .strip article{display:flex;gap:20px;padding:clamp(28px,4vw,48px) clamp(18px,3vw,40px);border-inline-end:1px solid var(--line);transition:background .4s}
 .strip article:last-child{border:0}
-.strip article:hover{background:var(--mist)}
-.ico{flex:none;width:58px;height:58px;border-radius:14px;background:var(--mist);display:grid;place-items:center;transition:background .4s,transform .5s var(--out)}
-.strip article:hover .ico{background:var(--green);transform:rotate(-8deg) scale(1.06)}
-.ico svg{width:30px;height:30px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
+.strip article:hover{background:var(--blush)}
+.ico{flex:none;width:58px;height:58px;border-radius:14px;background:var(--blush);display:grid;place-items:center;transition:background .4s,transform .5s var(--out)}
+.strip article:hover .ico{background:var(--deep);transform:rotate(-8deg) scale(1.06)}
+.ico svg{width:30px;height:30px;stroke:var(--deep);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
 .strip article:hover .ico svg{stroke:#fff}
-.strip h3{font-weight:700;font-size:1.4rem;color:var(--green);margin-bottom:8px}
+.strip h3{font-weight:700;font-size:1.4rem;color:var(--deep);margin-bottom:8px}
 .strip p{color:var(--mute);font-size:.98rem}
 @media(max-width:900px){.strip{grid-template-columns:1fr}.strip article{border-inline-end:0;border-bottom:1px solid var(--line)}}
 
@@ -130,71 +130,96 @@ section{padding-block:clamp(70px,9vw,120px);overflow-x:clip}
 main{overflow-x:clip}
 .about .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(36px,6vw,90px);align-items:center}
 .collage{position:relative;aspect-ratio:1/.95}
-.card-big{position:absolute;inset:0 18% 18% 0;border-radius:24px;background:linear-gradient(150deg,var(--green),#26666a);display:grid;place-items:center;overflow:hidden}
+.card-big{position:absolute;inset:0 18% 18% 0;border-radius:24px;background:linear-gradient(150deg,var(--deep),#7a2f6b);display:grid;place-items:center;overflow:hidden}
 .card-big::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 38px)}
 .card-big .mono{font:800 clamp(4rem,12vw,8rem) var(--head);color:rgba(255,255,255,.92);letter-spacing:-.04em;position:relative;z-index:1}
-.card-big .mono em{color:var(--sage);font-style:normal}
-.badge{position:absolute;background:var(--sage);color:var(--green);border-radius:20px;padding:20px 26px;text-align:start}
+.card-big .mono em{color:var(--rose);font-style:normal}
+.badge{position:absolute;background:var(--rose);color:var(--deep);border-radius:20px;padding:20px 26px;text-align:start}
 .badge strong{display:block;font:800 clamp(2.4rem,5vw,3.6rem)/1 var(--head);color:#fff}
-.badge span{font:600 1rem var(--head);color:var(--green)}
-.badge.b1{inset-inline-end:0;top:32%;background:var(--sage);border-radius:20px 20px 20px 20px;transition:transform .5s var(--out)}
-.badge.b2{inset-inline-start:8%;bottom:0;background:var(--green);border:6px solid var(--sage);color:#fff}
-.badge.b2 span{color:#dfeceb}
+.badge span{font:600 1rem var(--head);color:var(--deep)}
+.badge.b1{inset-inline-end:0;top:32%;background:var(--rose);border-radius:20px 20px 20px 20px;transition:transform .5s var(--out)}
+.badge.b2{inset-inline-start:8%;bottom:0;background:var(--deep);border:6px solid var(--rose);color:#fff}
+.badge.b2 span{color:#f7e3ec}
 .badge:hover{transform:translateY(-8px)}
 .about p.txt{color:var(--mute);font-size:1.08rem;margin-bottom:26px;max-width:58ch}
 .checks{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-bottom:34px;padding:0}
 .checks li{list-style:none;display:flex;align-items:center;gap:12px;font-weight:500}
-.checks li::before{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/16px no-repeat}
+.checks li::before{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:var(--deep) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/16px no-repeat}
 .sign{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
-.sign .name{font:italic 300 2.6rem "Fraunces",serif;color:var(--green);line-height:1}
+.sign .name{font:italic 300 2.6rem "Fraunces",serif;color:var(--deep);line-height:1}
 .sign small{display:block;font:600 1rem var(--head);margin-top:6px}
 @media(max-width:900px){.about .wrap{grid-template-columns:1fr}.collage{aspect-ratio:auto;display:grid;grid-template-columns:1fr 1fr;gap:14px}.card-big{position:relative;inset:auto;grid-column:1/-1;min-height:190px}.badge{position:static;padding:18px 20px}.badge.b2{border-width:4px}}
 @media(max-width:560px){.checks{grid-template-columns:1fr}}
 
+
+/* experience */
+.exp .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,80px);align-items:start}
+.exp .side{position:sticky;top:110px}
+.edu{background:var(--blush);border-radius:20px;padding:24px 26px;margin-top:24px}
+.edu h3{font-weight:800;font-size:1.15rem;color:var(--deep);margin-bottom:6px}
+.edu p{color:var(--mute);font-size:.95rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips span{background:#fff;border-radius:99px;padding:3px 14px;font-size:.88rem;color:var(--deep);font-weight:600}
+.tl{position:relative;padding-inline-start:34px}
+.tl::before{content:"";position:absolute;inset-inline-start:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--rose),var(--deep));transform:scaleY(0);transform-origin:top;transition:transform 2s var(--out)}
+.tl.in::before{transform:scaleY(1)}
+.job{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 28px;margin-bottom:22px;transition:transform .5s var(--out),box-shadow .5s,opacity .9s var(--out)}
+.job:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(74,25,66,.14)}
+.job::before{content:"";position:absolute;inset-inline-start:-34px;top:30px;width:16px;height:16px;border-radius:50%;background:var(--rose);border:4px solid #fff;box-shadow:0 0 0 2px var(--deep)}
+.job .when{font:700 .85rem var(--head);color:var(--rose-ink);letter-spacing:.04em}
+.job h3{font-weight:800;font-size:1.3rem;color:var(--deep);margin:4px 0}
+.job .org{color:var(--mute);font-weight:500;margin-bottom:12px}
+.job ul{padding-inline-start:1.1em;color:var(--mute);font-size:.98rem}
+.job li{margin-block:5px}
+.job a.lnk{display:inline-block;margin-top:12px;color:var(--rose-ink);font-weight:700;border-bottom:2px solid currentColor}
+.pcard.nolink::after{display:none}
+@media(max-width:900px){.exp .wrap{grid-template-columns:1fr}.exp .side{position:static}}
+@media(max-width:560px){.job{padding:22px 20px}}
+
 /* featured app */
-.app{background:var(--mist)}
+.app{background:var(--blush)}
 .app .head{max-width:760px;margin-bottom:46px}
 .app .head p{color:var(--mute);font-size:1.1rem}
 .app-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:stretch}
-.shots{background:var(--green);border-radius:24px;padding:clamp(24px,4vw,44px);display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;align-items:center;position:relative}
+.shots{background:var(--deep);border-radius:24px;padding:clamp(24px,4vw,44px);display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;align-items:center;position:relative}
 .shots .phone{flex:none;width:200px;transform:none;animation:none;scroll-snap-align:center;transition:transform .5s var(--out)}
 .shots .phone:hover{transform:translateY(-12px) rotate(-1.5deg)}
 @media(max-width:560px){.shots{padding:22px;gap:14px;-webkit-overflow-scrolling:touch}.shots .phone{width:170px}}
-.shots::-webkit-scrollbar{height:6px}.shots::-webkit-scrollbar-thumb{background:var(--sage);border-radius:9px}
-.capab{background:var(--green);color:#fff;border-radius:24px;padding:clamp(26px,4vw,40px);position:relative;overflow:hidden}
+.shots::-webkit-scrollbar{height:6px}.shots::-webkit-scrollbar-thumb{background:var(--rose);border-radius:9px}
+.capab{background:var(--deep);color:#fff;border-radius:24px;padding:clamp(26px,4vw,40px);position:relative;overflow:hidden}
 .capab::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 2px,transparent 2px 38px);pointer-events:none}
 .capab h3{font-weight:800;font-size:1.7rem;margin-bottom:22px;position:relative}
 .cap{position:relative;margin-bottom:22px}
 .cap:last-of-type{margin-bottom:28px}
 .cap .row{display:flex;gap:14px;align-items:flex-start}
-.cap .pct{flex:none;background:var(--sage);color:var(--green);border-radius:99px;padding:2px 12px;font:800 .95rem var(--head);min-width:62px;text-align:center}
-.cap p{font-size:1rem;color:#dbe8e6;line-height:1.5}
+.cap .pct{flex:none;background:var(--rose);color:var(--deep);border-radius:99px;padding:2px 12px;font:800 .95rem var(--head);min-width:62px;text-align:center}
+.cap p{font-size:1rem;color:#f5e1ea;line-height:1.5}
 .bar{height:5px;background:rgba(255,255,255,.18);border-radius:9px;margin-top:10px;overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:var(--sage);border-radius:9px;transition:width 1.6s var(--out)}
+.bar i{display:block;height:100%;width:0;background:var(--rose);border-radius:9px;transition:width 1.6s var(--out)}
 .capab .btn{position:relative}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:28px;background:#fff;border-radius:20px;overflow:hidden}
 .stats div{padding:28px 18px;text-align:center;border-inline-end:1px solid var(--line)}
 .stats div:last-child{border:0}
-.stats strong{display:block;font:800 clamp(2rem,4vw,3rem)/1 var(--head);color:var(--green)}
+.stats strong{display:block;font:800 clamp(2rem,4vw,3rem)/1 var(--head);color:var(--deep)}
 .stats span{color:var(--mute);font-size:.95rem}
 @media(max-width:900px){.app-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-inline-end:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
 
 /* process */
-.process{background:var(--green);color:#fff;text-align:center;position:relative;overflow:hidden}
-.process::before{content:"";position:absolute;inset:0;background:radial-gradient(700px circle at 50% 0,rgba(143,169,166,.2),transparent 60%)}
+.process{background:var(--deep);color:#fff;text-align:center;position:relative;overflow:hidden}
+.process::before{content:"";position:absolute;inset:0;background:radial-gradient(700px circle at 50% 0,rgba(231,169,195,.2),transparent 60%)}
 .process .wrap{position:relative}
-.process .eyebrow{color:#b9cfcc}
+.process .eyebrow{color:#f0c6d8}
 .process h2{color:#fff;margin-bottom:56px}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-items:start;position:relative}
-.steps::before{content:"";position:absolute;top:52px;inset-inline:12%;height:2px;background:repeating-linear-gradient(90deg,rgba(143,169,166,.5) 0 8px,transparent 8px 16px)}
+.steps::before{content:"";position:absolute;top:52px;inset-inline:12%;height:2px;background:repeating-linear-gradient(90deg,rgba(231,169,195,.5) 0 8px,transparent 8px 16px)}
 .step{position:relative}
-.step small{display:block;font:600 1rem var(--head);margin-bottom:14px;color:#dfeceb}
-.step .no{width:68px;height:68px;border-radius:50%;background:var(--sage);color:var(--green);font:800 1.5rem var(--head);display:grid;place-items:center;margin:0 auto -34px;position:relative;z-index:2;border:6px solid var(--green);box-shadow:0 0 0 0 rgba(143,169,166,.5);transition:box-shadow .6s}
+.step small{display:block;font:600 1rem var(--head);margin-bottom:14px;color:#f7e3ec}
+.step .no{width:68px;height:68px;border-radius:50%;background:var(--rose);color:var(--deep);font:800 1.5rem var(--head);display:grid;place-items:center;margin:0 auto -34px;position:relative;z-index:2;border:6px solid var(--deep);box-shadow:0 0 0 0 rgba(231,169,195,.5);transition:box-shadow .6s}
 .step.in .no{animation:ping 1.6s .4s 1}
-@keyframes ping{60%{box-shadow:0 0 0 18px rgba(143,169,166,0)}}
+@keyframes ping{60%{box-shadow:0 0 0 18px rgba(231,169,195,0)}}
 .step .box{background:#fff;color:var(--ink);border-radius:20px;padding:54px 24px 28px;text-align:start;transition:transform .5s var(--out);min-height:210px}
 .step:hover .box{transform:translateY(-10px)}
-.step h3{font-weight:700;font-size:1.3rem;color:var(--green);margin-bottom:10px}
+.step h3{font-weight:700;font-size:1.3rem;color:var(--deep);margin-bottom:10px}
 .step p{color:var(--mute);font-size:.97rem}
 @media(max-width:900px){.steps{grid-template-columns:1fr 1fr}.steps::before{display:none}}
 @media(max-width:560px){.steps{grid-template-columns:1fr;gap:18px}.step .box{min-height:0;padding:50px 22px 24px}}
@@ -202,41 +227,41 @@ main{overflow-x:clip}
 /* projects */
 .projects .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.pcard{background:var(--mist);border-radius:22px;padding:34px;display:flex;flex-direction:column;gap:14px;transition:transform .5s var(--out),background .4s,color .4s;position:relative;overflow:hidden;min-height:300px}
-.pcard::after{content:"↗";position:absolute;inset-inline-end:26px;top:26px;width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:1.2rem;color:var(--green);transition:transform .5s var(--out),background .4s}
+.pcard{background:var(--blush);border-radius:22px;padding:34px;display:flex;flex-direction:column;gap:14px;transition:transform .5s var(--out),background .4s,color .4s;position:relative;overflow:hidden;min-height:300px}
+.pcard::after{content:"↗";position:absolute;inset-inline-end:26px;top:26px;width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:1.2rem;color:var(--deep);transition:transform .5s var(--out),background .4s}
 [dir=rtl] .pcard::after{content:"↖"}
-.pcard:hover{transform:translateY(-10px);background:var(--green);color:#fff}
-.pcard:hover::after{background:var(--sage);transform:rotate(45deg)}
+.pcard:hover{transform:translateY(-10px);background:var(--deep);color:#fff}
+.pcard:hover::after{background:var(--rose);transform:rotate(45deg)}
 .pcard .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
 .pcard .tags span{border:1px solid currentColor;opacity:.75;border-radius:99px;padding:2px 12px;font-size:.8rem}
-.pcard h3{font-weight:800;font-size:1.6rem;margin-top:56px;color:var(--green);transition:color .4s}
+.pcard h3{font-weight:800;font-size:1.6rem;margin-top:56px;color:var(--deep);transition:color .4s}
 .pcard:hover h3{color:#fff}
 .pcard p{color:var(--mute);transition:color .4s}
-.pcard:hover p{color:#d3e2e0}
+.pcard:hover p{color:#f3dce8}
 @media(max-width:900px){.pgrid{grid-template-columns:1fr}}
 
 /* skills */
-.skills{background:var(--mist)}
-.sk{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:36px}
+.skills{background:var(--blush)}
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px;margin-top:36px}
 .sk div{background:#fff;border-radius:18px;padding:28px;transition:transform .5s var(--out),box-shadow .5s}
-.sk div:hover{transform:translateY(-8px);box-shadow:0 22px 44px rgba(22,55,58,.14)}
-.sk h3{color:var(--green);font-weight:800;font-size:1.3rem;margin-bottom:10px}
+.sk div:hover{transform:translateY(-8px);box-shadow:0 22px 44px rgba(74,25,66,.14)}
+.sk h3{color:var(--deep);font-weight:800;font-size:1.3rem;margin-bottom:10px}
 .sk p{color:var(--mute);font-size:.97rem}
-@media(max-width:900px){.sk{grid-template-columns:1fr 1fr}}@media(max-width:520px){.sk{grid-template-columns:1fr}}
+
 
 /* contact + footer */
-.contact{background:var(--green);color:#fff;padding-block:clamp(70px,9vw,110px)}
+.contact{background:var(--deep);color:#fff;padding-block:clamp(70px,9vw,110px)}
 .contact .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
 .contact h2{color:#fff}
-.contact p{color:#d3e2e0;max-width:46ch;margin-bottom:30px;font-size:1.1rem}
+.contact p{color:#f3dce8;max-width:46ch;margin-bottom:30px;font-size:1.1rem}
 .cinfo{display:grid;gap:18px}
 .cinfo a{display:flex;gap:18px;align-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:22px 26px;transition:background .4s,transform .5s var(--out)}
 .cinfo a:hover{background:rgba(255,255,255,.14);transform:translateX(8px)}
 [dir=rtl] .cinfo a:hover{transform:translateX(-8px)}
-.cinfo .ico{background:var(--sage)}.cinfo .ico svg{stroke:var(--green)}
-.cinfo b{display:block;font:700 1.1rem var(--head)}.cinfo span{color:#cfe0de;word-break:break-all}
+.cinfo .ico{background:var(--rose)}.cinfo .ico svg{stroke:var(--deep)}
+.cinfo b{display:block;font:700 1.1rem var(--head)}.cinfo span{color:#f3dce8;word-break:break-all}
 @media(max-width:900px){.contact .wrap{grid-template-columns:1fr}}
-footer{background:#0f2a2c;color:#aac0be;font-size:.92rem}
+footer{background:#2e0f2a;color:#d9b5c8;font-size:.92rem}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:24px}
 footer a:hover{color:#fff}
 
@@ -263,6 +288,7 @@ footer a:hover{color:#fff}
   <a href="#top" class="brand">Alaa Saijary<small data-en="Mobile &amp; Web Developer" data-ar="مطوّرة تطبيقات موبايل وويب">Mobile &amp; Web Developer</small></a>
   <nav class="menu" id="menu">
     <a href="#top" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="#experience" data-en="Experience" data-ar="الخبرات">Experience</a>
     <a href="#app" data-en="Featured App" data-ar="التطبيق المميز">Featured App</a>
     <a href="#projects" data-en="Projects" data-ar="المشاريع">Projects</a>
     <a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a>
@@ -303,20 +329,77 @@ footer a:hover{color:#fff}
   <div class="collage rv l">
     <div class="card-big"><div class="mono">A<em>.</em>S</div></div>
     <div class="badge b1"><strong data-count="500" data-suffix="+">0</strong><span data-en="Users on my Quran app" data-ar="مستخدم لتطبيق القرآن">Users on my Quran app</span></div>
-    <div class="badge b2"><strong data-count="4">0</strong><span data-en="Shipped projects" data-ar="مشاريع منفّذة">Shipped projects</span></div>
+    <div class="badge b2"><strong>89.26%</strong><span data-en="Honors GPA, Computer Eng." data-ar="معدل الشرف، هندسة الحاسوب">Honors GPA, Computer Eng.</span></div>
   </div>
   <div class="rv r">
     <div class="eyebrow" data-en="About me" data-ar="نبذة عني">About me</div>
     <h2 data-en="Software that quietly serves people" data-ar="برمجيات هادئة تخدم الناس فعلاً">Software that quietly serves people</h2>
-    <p class="txt" data-en="I'm a computer engineer who designs and develops mobile and web products end to end. I built Manhaj Hayah, a free Quran, prayer and azkar app, completely on my own. I'm now deepening my skills in machine learning and cloud technologies, and I'm open to collaborating on open-source web and mobile projects." data-ar="مهندسة حاسوب أصمّم وأطوّر منتجات الموبايل والويب من الألف إلى الياء. بنيتُ «منهج حياة»، تطبيق مجاني للقرآن والصلاة والأذكار، بمفردي بالكامل. أعمّق الآن مهاراتي في تعلّم الآلة والخدمات السحابية، ومنفتحة على التعاون في مشاريع مفتوحة المصدر للويب والموبايل.">I'm a computer engineer who designs and develops mobile and web products end to end. I built Manhaj Hayah, a free Quran, prayer and azkar app, completely on my own. I'm now deepening my skills in machine learning and cloud technologies, and I'm open to collaborating on open-source web and mobile projects.</p>
+    <p class="txt" data-en="Computer engineer (University of Aleppo, 2023, GPA 89.26%, Honors) building mobile and web products end to end. I recently developed Lirati, a digital money-transfer app published on the App Store and Google Play, and built Manhaj Hayah, a free Quran, prayer and azkar app, on my own. I also write Python tools for security and AI, and I'm open to open-source collaboration." data-ar="مهندسة حاسوب (جامعة حلب 2023، بمعدل 89.26% وبتقدير الشرف) أبني منتجات الموبايل والويب من الألف إلى الياء. طوّرتُ مؤخراً تطبيق Lirati للتحويلات المالية المنشور على App Store وGoogle Play، وبنيتُ «منهج حياة» تطبيق القرآن والصلاة والأذكار المجاني بمفردي. وأكتب أيضاً أدوات بايثون للأمن والذكاء الاصطناعي، ومنفتحة على التعاون في المصادر المفتوحة.">Computer engineer (University of Aleppo, 2023, GPA 89.26%, Honors) building mobile and web products end to end. I recently developed Lirati, a digital money-transfer app published on the App Store and Google Play, and built Manhaj Hayah, a free Quran, prayer and azkar app, on my own. I also write Python tools for security and AI, and I'm open to open-source collaboration.</p>
     <ul class="checks">
       <li data-en="Flutter mobile apps" data-ar="تطبيقات Flutter">Flutter mobile apps</li>
       <li data-en="Laravel web solutions" data-ar="حلول Laravel للويب">Laravel web solutions</li>
-      <li data-en="Firebase & real-time" data-ar="Firebase والوقت الفعلي">Firebase &amp; real-time</li>
-      <li data-en="REST API design" data-ar="تصميم واجهات REST">REST API design</li>
+      <li data-en="Angular & React front ends" data-ar="واجهات Angular وReact">Angular &amp; React front ends</li>
+      <li data-en="Python: security & AI tools" data-ar="بايثون: أدوات أمن وذكاء اصطناعي">Python: security &amp; AI tools</li>
     </ul>
     <div class="sign"><div><div class="name">Alaa Saijary</div><small data-en="Computer Engineer · Developer" data-ar="مهندسة حاسوب · مطوّرة">Computer Engineer · Developer</small></div>
       <a class="btn" href="https://www.linkedin.com/in/alaa-basher-saijary-b48002378/" target="_blank" rel="noopener" data-en="More about me" data-ar="المزيد عني">More about me</a></div>
+  </div>
+</div></section>
+
+<section class="exp" id="experience"><div class="wrap">
+  <div class="side rv l">
+    <div class="eyebrow" data-en="Experience &amp; education" data-ar="الخبرات والتعليم">Experience &amp; education</div>
+    <h2 data-en="Where I've built and learned" data-ar="أين بنيتُ وتعلّمتُ">Where I've built and learned</h2>
+    <div class="edu">
+      <h3 data-en="B.Eng. Computer Engineering" data-ar="بكالوريوس هندسة الحاسوب">B.Eng. Computer Engineering</h3>
+      <p data-en="University of Aleppo, Syria · Graduated Apr 2023 · GPA 89.26% (Honors)" data-ar="جامعة حلب، سوريا · تخرجت نيسان 2023 · المعدل 89.26% (شرف)">University of Aleppo, Syria · Graduated Apr 2023 · GPA 89.26% (Honors)</p>
+      <div class="chips"><span data-en="Flutter certification" data-ar="شهادة Flutter">Flutter certification</span><span data-en="Laravel backend certification" data-ar="شهادة Laravel باك إند">Laravel backend certification</span></div>
+    </div>
+    <div class="edu">
+      <h3 data-en="Languages" data-ar="اللغات">Languages</h3>
+      <div class="chips"><span data-en="Arabic · Native" data-ar="العربية · الأم">Arabic · Native</span><span data-en="English · Fluent" data-ar="الإنجليزية · بطلاقة">English · Fluent</span><span data-en="Turkish · Intermediate" data-ar="التركية · متوسط">Turkish · Intermediate</span></div>
+    </div>
+  </div>
+  <div class="tl" id="tl">
+    <article class="job rv r">
+      <div class="when">2025</div>
+      <h3 data-en="Mobile Application Developer" data-ar="مطوّرة تطبيقات موبايل">Mobile Application Developer</h3>
+      <div class="org">Kaymn Company</div>
+      <ul>
+        <li data-en="Developed Lirati, a digital financial-transfers app: sending, receiving and balance management." data-ar="طوّرتُ تطبيق Lirati للتحويلات المالية الرقمية: إرسال واستقبال وإدارة الرصيد.">Developed Lirati, a digital financial-transfers app: sending, receiving and balance management.</li>
+        <li data-en="Built secure authentication, transaction workflows and real-time updates." data-ar="بنيتُ مصادقة آمنة ومسارات معاملات وتحديثات فورية.">Built secure authentication, transaction workflows and real-time updates.</li>
+        <li data-en="Worked with backend teams to meet financial-security standards." data-ar="عملتُ مع فرق الباك إند للالتزام بمعايير الأمان المالي.">Worked with backend teams to meet financial-security standards.</li>
+        <li data-en="Published on the Apple App Store and Google Play." data-ar="نُشر التطبيق على Apple App Store وGoogle Play.">Published on the Apple App Store and Google Play.</li>
+      </ul>
+      <a class="lnk" href="https://lirati.app/invite" target="_blank" rel="noopener" data-en="Get Lirati" data-ar="حمّل Lirati">Get Lirati</a>
+    </article>
+    <article class="job rv r" style="--d:80ms">
+      <div class="when">2024</div>
+      <h3 data-en="Full-Stack Developer (Angular &amp; Laravel)" data-ar="مطوّرة فل ستاك (Angular وLaravel)">Full-Stack Developer (Angular &amp; Laravel)</h3>
+      <div class="org" data-en="Lebanese company · Remote training" data-ar="شركة لبنانية · تدريب عن بُعد">Lebanese company · Remote training</div>
+      <ul>
+        <li data-en="Delivered 3 production-ready projects in a 3-month intensive: a medical system, a restaurant platform with real-time order tracking, and an end-to-end encrypted chat app (Laravel Sockets)." data-ar="سلّمتُ 3 مشاريع جاهزة للإنتاج خلال 3 أشهر مكثفة: نظام طبي، ومنصة مطاعم بتتبع الطلبات لحظياً، وتطبيق دردشة مشفّر بين الطرفين (Laravel Sockets).">Delivered 3 production-ready projects in a 3-month intensive: a medical system, a restaurant platform with real-time order tracking, and an end-to-end encrypted chat app (Laravel Sockets).</li>
+        <li data-en="Built high-performance REST APIs, optimized SQL queries and integrated JWT authentication." data-ar="بنيتُ واجهات REST عالية الأداء، وحسّنتُ استعلامات SQL، ودمجتُ مصادقة JWT.">Built high-performance REST APIs, optimized SQL queries and integrated JWT authentication.</li>
+      </ul>
+    </article>
+    <article class="job rv r" style="--d:80ms">
+      <div class="when">2024</div>
+      <h3 data-en="Frontend Developer (React.js)" data-ar="مطوّرة واجهات (React.js)">Frontend Developer (React.js)</h3>
+      <div class="org" data-en="Turkish company · Remote project" data-ar="شركة تركية · مشروع عن بُعد">Turkish company · Remote project</div>
+      <ul>
+        <li data-en="Implemented responsive UIs with React Hooks and Redux state management." data-ar="نفّذتُ واجهات متجاوبة بـ React Hooks وإدارة الحالة عبر Redux.">Implemented responsive UIs with React Hooks and Redux state management.</li>
+        <li data-en="Integrated GraphQL APIs together with backend teams." data-ar="دمجتُ واجهات GraphQL بالتعاون مع فرق الباك إند.">Integrated GraphQL APIs together with backend teams.</li>
+      </ul>
+    </article>
+    <article class="job rv r" style="--d:80ms">
+      <div class="when">2023 – 2024</div>
+      <h3 data-en="Python Developer · Cybersecurity &amp; AI tools" data-ar="مطوّرة بايثون · أمن سيبراني وأدوات ذكاء اصطناعي">Python Developer · Cybersecurity &amp; AI tools</h3>
+      <div class="org" data-en="Freelance projects" data-ar="مشاريع حرة">Freelance projects</div>
+      <ul>
+        <li data-en="Built Python tools that automate vulnerability scanning (SQLi, XSS) for websites." data-ar="بنيتُ أدوات بايثون تؤتمت فحص الثغرات (SQLi وXSS) للمواقع.">Built Python tools that automate vulnerability scanning (SQLi, XSS) for websites.</li>
+        <li data-en="Developed custom AI tools for data scraping and predictive analytics." data-ar="طوّرتُ أدوات ذكاء اصطناعي مخصصة لجمع البيانات والتحليل التنبؤي.">Developed custom AI tools for data scraping and predictive analytics.</li>
+      </ul>
+    </article>
   </div>
 </div></section>
 
@@ -366,9 +449,12 @@ footer a:hover{color:#fff}
     <h2 style="margin:0" data-en="Selected projects" data-ar="مشاريع مختارة">Selected projects</h2></div>
     <a class="btn rv" href="https://github.com/AlaaBashirSaijary" target="_blank" rel="noopener" data-en="All on GitHub" data-ar="كلها على GitHub">All on GitHub</a></div>
   <div class="pgrid">
-    <a class="pcard rv" href="https://github.com/AlaaBashirSaijary/quran-app" target="_blank" rel="noopener"><h3>Quran &amp; Azkar</h3><p data-en="Offline Quran reader with prayer-time notifications. 500+ users." data-ar="قارئ قرآن يعمل دون إنترنت مع إشعارات مواقيت الصلاة. أكثر من 500 مستخدم.">Offline Quran reader with prayer-time notifications. 500+ users.</p><div class="tags"><span>Flutter</span><span>Firebase</span><span>Provider</span></div></a>
-    <a class="pcard rv" style="--d:120ms" href="https://github.com/AlaaBashirSaijary/salon-app" target="_blank" rel="noopener"><h3>Salon Booking</h3><p data-en="Appointment booking with real-time updates and notifications." data-ar="حجز مواعيد صالونات مع تحديثات وإشعارات فورية.">Appointment booking with real-time updates and notifications.</p><div class="tags"><span>Flutter</span><span>Firebase</span></div></a>
-    <a class="pcard rv" style="--d:240ms" href="https://github.com/AlaaBashirSaijary/sweet-website" target="_blank" rel="noopener"><h3>Sweet E-commerce</h3><p data-en="Sweets store with product management and a shopping cart." data-ar="متجر حلويات مع إدارة المنتجات وسلة شراء.">Sweets store with product management and a shopping cart.</p><div class="tags"><span>Laravel</span><span>MySQL</span><span>Blade</span></div></a>
+    <a class="pcard rv" href="https://lirati.app/invite" target="_blank" rel="noopener"><h3>Lirati</h3><p data-en="Digital money-transfer app with secure authentication and real-time updates. On the App Store and Google Play." data-ar="تطبيق تحويلات مالية رقمية بمصادقة آمنة وتحديثات فورية. متوفر على App Store وGoogle Play.">Digital money-transfer app with secure authentication and real-time updates. On the App Store and Google Play.</p><div class="tags"><span>Mobile</span><span>Fintech</span><span>iOS &amp; Android</span></div></a>
+    <a class="pcard rv" style="--d:100ms" href="https://github.com/AlaaBashirSaijary/quran-app" target="_blank" rel="noopener"><h3>Quran &amp; Azkar</h3><p data-en="Offline Quran reader with prayer reminders and daily hadiths. 500+ active users." data-ar="قارئ قرآن يعمل دون إنترنت مع تذكير بالصلاة وأحاديث يومية. أكثر من 500 مستخدم نشط.">Offline Quran reader with prayer reminders and daily hadiths. 500+ active users.</p><div class="tags"><span>Flutter</span><span>Firebase</span><span>Provider</span></div></a>
+    <div class="pcard nolink rv" style="--d:200ms"><h3 data-en="Children's Games" data-ar="ألعاب الأطفال">Children's Games</h3><p data-en="Gamified learning app with interactive puzzles, quizzes and reward systems." data-ar="تطبيق تعلّم بالألعاب بألغاز واختبارات تفاعلية ونظام مكافآت.">Gamified learning app with interactive puzzles, quizzes and reward systems.</p><div class="tags"><span>Flutter</span><span>Gamification</span></div></div>
+    <a class="pcard rv" href="https://github.com/AlaaBashirSaijary/salon-app" target="_blank" rel="noopener"><h3>Salon Booking</h3><p data-en="Appointment booking with real-time updates and notifications." data-ar="حجز مواعيد صالونات مع تحديثات وإشعارات فورية.">Appointment booking with real-time updates and notifications.</p><div class="tags"><span>Flutter</span><span>Firebase</span></div></a>
+    <a class="pcard rv" style="--d:100ms" href="https://github.com/AlaaBashirSaijary/sweet-website" target="_blank" rel="noopener"><h3>Sweet E-commerce</h3><p data-en="Sweets store with product management, a cart and payment gateways." data-ar="متجر حلويات مع إدارة المنتجات وسلة شراء وبوابات دفع.">Sweets store with product management, a cart and payment gateways.</p><div class="tags"><span>Laravel</span><span>MySQL</span><span>Blade</span></div></a>
+    <div class="pcard nolink rv" style="--d:200ms"><h3 data-en="Vulnerability Scanner" data-ar="ماسح الثغرات">Vulnerability Scanner</h3><p data-en="Python tool that detected 50+ critical flaws (such as SQLi) in client websites." data-ar="أداة بايثون كشفت أكثر من 50 ثغرة حرجة (مثل SQLi) في مواقع العملاء.">Python tool that detected 50+ critical flaws (such as SQLi) in client websites.</p><div class="tags"><span>Python</span><span>OWASP</span></div></div>
   </div>
 </div></section>
 
@@ -377,14 +463,15 @@ footer a:hover{color:#fff}
   <h2 class="rv" data-en="Technical skills" data-ar="المهارات التقنية">Technical skills</h2>
   <div class="sk">
     <div class="rv"><h3>Mobile</h3><p>Flutter, Dart, Provider, Firebase</p></div>
-    <div class="rv" style="--d:100ms"><h3>Backend</h3><p>Laravel, PHP, RESTful APIs, MySQL</p></div>
-    <div class="rv" style="--d:200ms"><h3>Frontend</h3><p>React, HTML, CSS, JavaScript</p></div>
-    <div class="rv" style="--d:300ms"><h3>Tools</h3><p>Git, GitHub, Docker</p></div>
+    <div class="rv" style="--d:80ms"><h3>Backend</h3><p>Laravel, PHP, REST APIs, JWT, SQL</p></div>
+    <div class="rv" style="--d:160ms"><h3>Frontend</h3><p>Angular, React, Redux, GraphQL, JavaScript</p></div>
+    <div class="rv" style="--d:240ms"><h3>Python &amp; Security</h3><p>Python (advanced), OWASP pentesting, AI prototyping</p></div>
+    <div class="rv" style="--d:320ms"><h3>Tools</h3><p>Git, Postman, Docker, Figma</p></div>
   </div>
 </div></section>
 
 <section class="contact" id="contact"><div class="wrap">
-  <div class="rv l"><div class="eyebrow" style="color:#b9cfcc" data-en="Get in touch" data-ar="تواصل معي">Get in touch</div>
+  <div class="rv l"><div class="eyebrow" style="color:#f0c6d8" data-en="Get in touch" data-ar="تواصل معي">Get in touch</div>
     <h2 data-en="Let's build something great together" data-ar="لنبنِ شيئاً رائعاً معاً">Let's build something great together</h2>
     <p data-en="Have an app or a web project in mind, or want to collaborate on open source? Send me a message." data-ar="لديك فكرة تطبيق أو مشروع ويب، أو تريد التعاون في مشروع مفتوح المصدر؟ راسلني.">Have an app or a web project in mind, or want to collaborate on open source? Send me a message.</p>
     <a class="btn light" href="mailto:alaabashersaijary@gmail.com" data-en="Send an email" data-ar="أرسل بريداً">Send an email</a></div>
@@ -437,7 +524,7 @@ footer a:hover{color:#fff}
     el.querySelectorAll('[data-count]').forEach(count);
     el.querySelectorAll('.bar i').forEach(function(b){ b.style.width=b.style.getPropertyValue('--w'); });
   }); },{threshold:.18});
-  function observe(){ document.querySelectorAll('.rv,.words').forEach(function(el){ io.observe(el); }); }
+  function observe(){ document.querySelectorAll('.rv,.words,.tl').forEach(function(el){ io.observe(el); }); }
 
   setTimeout(function(){
     document.getElementById('loader').classList.add('done');
