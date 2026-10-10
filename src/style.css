@@ -365,3 +365,5 @@ footer a:hover{color:#fff}
 .stage{position:relative}
 .hero h1.long{font-size:clamp(2rem,4.3vw,3.7rem)}
 @media(max-width:900px){.stage:has(>.dash){height:auto;padding:8px 0 28px;overflow:visible}}
+.btn .wai{width:20px;height:20px;flex:none}
+.cinfo .ico .wai{width:30px;height:30px;color:var(--deep)}
