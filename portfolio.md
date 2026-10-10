@@ -24,7 +24,7 @@
 ### Education ERP System (Laravel 11)  
 🏫 نظام لإدارة المدارس: حضور بـ QR، العلامات والتقارير، الأقساط والمدفوعات، إشعارات أولياء الأمور (WhatsApp/SMS عبر Queue)، جدول الحصص مع منع التعارض، حضور الموظفين، وتطبيق PWA. واجهة Livewire بالعربية (RTL) والإنجليزية.  
 - Built with: **Laravel 11, Livewire, Tailwind, REST API**.  
-🔗 [صفحة المشروع](https://alaabashirsaijary.github.io/Education-ERP-System/) | [GitHub](https://github.com/AlaaBashirSaijary/Education-ERP-System)  
+🔗 [صفحة المنتج](https://alaabashirsaijary.github.io/AlaaBashirSaijary/school-management-system/) | [العرض التفاعلي](https://alaabashirsaijary.github.io/Education-ERP-System/) | [GitHub](https://github.com/AlaaBashirSaijary/Education-ERP-System)  
 
 ### Quran & Azkar App (Flutter)  
 📱 تطبيق قرآن وأذكار بميزات متقدمة:  

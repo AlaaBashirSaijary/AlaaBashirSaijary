@@ -4,6 +4,8 @@ const cards={
  'og-home-en':{dir:'ltr',lang:'en',k:'ALAA SAIJARY',t:'Flutter & Laravel Developer',s:'Mobile apps · Web solutions · Syria',mark:'A.S'},
  'og-home-ar':{dir:'rtl',lang:'ar',k:'ألاء سيجري',t:'مطوّرة Flutter وLaravel',s:'تطبيقات موبايل · حلول ويب · سوريا',mark:'A.S'},
  'og-clinic-en':{dir:'ltr',lang:'en',k:'AAYADATI',t:'Clinic management app that works offline',s:'iPad & Android · Arabic interface · 14-day free trial',mark:'℞'},
+ 'og-school-en':{dir:'ltr',lang:'en',k:'EDUCATION ERP',t:'School management system',s:'QR attendance · Fees · Parent alerts · Arabic & English',mark:'ERP'},
+ 'og-school-ar':{dir:'rtl',lang:'ar',k:'Education ERP',t:'نظام إدارة المدارس',s:'حضور QR · أقساط · إشعارات للأهل · عربي وإنجليزي',mark:'ERP'},
  'og-clinic-ar':{dir:'rtl',lang:'ar',k:'عيادتي',t:'تطبيق إدارة عيادات يعمل بلا إنترنت',s:'آيباد وأندرويد · واجهة عربية · تجربة مجانية 14 يوماً',mark:'℞'},
 };
 const page=(c)=>`<!doctype html><html lang="${c.lang}" dir="${c.dir}"><head><meta charset="utf-8"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@600;800&family=Cairo:wght@600;800&display=swap"><style>

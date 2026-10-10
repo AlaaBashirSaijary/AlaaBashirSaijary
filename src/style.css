@@ -345,3 +345,23 @@ footer a:hover{color:#fff}
 .pcard.wide h3{margin-top:44px}
 .pcard.wide p{max-width:78ch}
 @media(max-width:900px){.pcard.wide{grid-column:auto}}
+
+/* dashboard illustration */
+.dash{position:relative;width:min(100%,460px);aspect-ratio:4/3;margin-inline:auto;border-radius:18px;background:#fff;box-shadow:0 40px 80px rgba(46,15,42,.35),0 0 0 2px rgba(255,255,255,.12);transform:rotate(-2deg);animation:float 6s ease-in-out infinite;overflow:hidden;display:flex;flex-direction:column}
+.dash .bar{height:26px;background:var(--blush);display:flex;gap:6px;align-items:center;padding-inline:12px}
+.dash .bar i{width:9px;height:9px;border-radius:50%;background:var(--rose)}
+.dash .body{flex:1;display:grid;grid-template-columns:62px 1fr}
+.dash .nav{background:var(--deep);display:grid;align-content:start;gap:10px;padding:14px 12px}
+.dash .nav b{height:8px;border-radius:5px;background:rgba(255,255,255,.35)}
+.dash .nav b:first-child{background:var(--rose)}
+.dash .pane{padding:14px;display:grid;grid-template-rows:auto 1fr;gap:12px}
+.dash .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.dash .tiles div{background:var(--blush);border-radius:10px;padding:8px 10px}
+.dash .tiles em{font:800 1.15rem var(--head);color:var(--deep);font-style:normal}
+.dash .chart{display:flex;align-items:flex-end;gap:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px}
+.dash .chart i{flex:1;height:var(--h);border-radius:5px 5px 0 0;background:linear-gradient(var(--rose),var(--deep))}
+.qrb{position:absolute;inset-inline-end:-6px;bottom:-14px;width:78px;height:78px;border-radius:20px;background:var(--rose);display:grid;place-items:center;box-shadow:0 18px 36px rgba(0,0,0,.28);transform:rotate(6deg)}
+.qrb svg{width:44px;height:44px;stroke:var(--deep);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.stage{position:relative}
+.hero h1.long{font-size:clamp(2rem,4.3vw,3.7rem)}
+@media(max-width:900px){.stage:has(>.dash){height:auto;padding:8px 0 28px;overflow:visible}}
