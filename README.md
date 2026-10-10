@@ -7,3 +7,4 @@
 ⚡ Fun fact: I love exploring new technologies and enjoy hiking on the weekends!
 💼 LinkedIn: https://www.linkedin.com/in/alaa-basher-saijary-b48002378/
 📂 Portfolio: [portfolio.md](portfolio.md)
+🌐 Website: https://alaabashirsaijary.github.io/AlaaBashirSaijary/
