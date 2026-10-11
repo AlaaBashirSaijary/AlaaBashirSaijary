@@ -8,7 +8,7 @@ Page content lives in src/*.html with data-en / data-ar attributes holding the t
 for each language; this script writes one crawlable HTML file per language and page,
 adds metadata (canonical, hreflang, Open Graph, JSON-LD), a sitemap and robots.txt.
 """
-import datetime, hashlib, json, shutil, subprocess
+import datetime, hashlib, json, re, shutil, subprocess
 from pathlib import Path
 from bs4 import BeautifulSoup
 
@@ -23,6 +23,9 @@ LANGS = ('en', 'ar')
 
 from urllib.parse import quote
 WA_NUMBER = '963984668063'
+PRICING = json.loads((Path(__file__).resolve().parent.parent / 'src' / 'pricing.json').read_text(encoding='utf-8'))
+DEFAULT_WA = {'en': 'Hello Alaa, I visited your website and would like to talk.',
+              'ar': 'مرحباً ألاء، زرت موقعك وأود التحدث معك.'}
 PAGES = {
     'home': {'path': '', 'src': 'home.html', 'og': 'og-home', 'meta': {
         'en': ('Alaa Saijary | Flutter & Laravel Developer in Syria',
@@ -55,6 +58,14 @@ APPS = {
                'applicationCategory': 'EducationalApplication', 'operatingSystem': 'Web (PWA)', 'inLanguage': ['ar', 'en']},
 }
 LOCALE = {'en': 'en_US', 'ar': 'ar_AR'}
+
+
+def price_html(group, key, lang):
+    entry = PRICING.get(group, {}).get(key, {})
+    shown = (entry.get('display_' + lang) or '').strip()
+    if shown:
+        return '<span class="amount">%s</span>' % shown
+    return '<span class="amount ask" data-en="Ask for a quote" data-ar="اطلب عرض سعر">Ask for a quote</span>'
 
 
 def out_dir(lang, page):
@@ -137,7 +148,10 @@ def json_ld(soup, lang, page):
         ]
     else:
         feats = [text(h) for h in soup.select('#features .fcard h3')]
-        app = APPS[page]
+        app = dict(APPS[page])
+        usd = [e['usd'] for e in PRICING.get('clinic' if page == 'clinic' else 'school', {}).values() if e.get('usd')]
+        if usd:
+            app['offers'] = {'@type': 'Offer', 'price': str(min(usd)), 'priceCurrency': 'USD', 'url': url + '#pricing'}
         graph += [
             {'@type': 'BreadcrumbList', 'itemListElement': [
                 {'@type': 'ListItem', 'position': 1, 'name': CRUMB[lang], 'item': page_url(lang, 'home')},
@@ -195,6 +209,7 @@ LAYOUT = '''<!doctype html>
 {header}
 {body}
 {footer}
+<a class="wa-float" href="{{{{wa_en}}}}" data-href-en="{{{{wa_en}}}}" data-href-ar="{{{{wa_ar}}}}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="wai"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C22 6.45 17.5 2 12.04 2zm5.8 14.11c-.24.68-1.4 1.32-1.93 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09.99-2.38c.26-.28.56-.35.75-.35h.54c.17 0 .41-.02.62.48.24.58.81 2 .88 2.15.07.15.11.32.02.51-.08.19-.13.3-.26.46-.13.16-.28.36-.4.48-.13.13-.27.27-.12.53.15.26.67 1.11 1.44 1.8 1 .89 1.83 1.17 2.09 1.3.26.13.41.11.56-.07.15-.17.65-.76.83-1.02.17-.26.34-.21.57-.13.24.09 1.5.71 1.76.84.26.13.43.19.49.3.07.11.07.61-.17 1.29z"/></svg><span class="lbl" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span></a>
 <script src="{{{{root}}}}site.js?v={js_v}" defer></script>
 </body>
 </html>
@@ -217,17 +232,21 @@ def build_page(lang, page, css_v, js_v):
         topbar=partial('topbar-product.html' if product else 'topbar.html'),
         header=partial('header-product.html' if product else 'header.html'), body=body, footer=partial('footer.html'))
     tokens = rel_links(lang, page)
+    wa = PAGES[page].get('wa', DEFAULT_WA)
+    tokens.update({
+        '{{wa_en}}': 'https://wa.me/%s?text=%s' % (WA_NUMBER, quote(wa['en'])),
+        '{{wa_ar}}': 'https://wa.me/%s?text=%s' % (WA_NUMBER, quote(wa['ar'])),
+    })
     if product:
         other_id = 'school' if page == 'clinic' else 'clinic'
         names = {'school': ('School ERP', 'نظام المدارس'), 'clinic': ('Aayadati clinic app', 'تطبيق عيادتي')}[other_id]
         tokens.update({
             '{{other_product}}': tokens['{{school}}'] if other_id == 'school' else tokens['{{clinic}}'],
             '{{other_name_en}}': names[0], '{{other_name_ar}}': names[1],
-            '{{wa_en}}': 'https://wa.me/%s?text=%s' % (WA_NUMBER, quote(PAGES[page]['wa']['en'])),
-            '{{wa_ar}}': 'https://wa.me/%s?text=%s' % (WA_NUMBER, quote(PAGES[page]['wa']['ar'])),
         })
     for token, value in tokens.items():
         html = html.replace(token, value)
+    html = re.sub(r'\{\{price:(\w+)\.(\w+)\}\}', lambda m: price_html(m.group(1), m.group(2), lang), html)
     soup = localize(html, lang)
     ld = json.dumps(json_ld(soup, lang, page), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
     result = str(soup).replace('@@JSONLD@@', ld)
