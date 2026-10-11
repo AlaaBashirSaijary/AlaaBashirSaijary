@@ -431,3 +431,4 @@ footer a:hover{color:#fff}
 .video-frame video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
 .vnote{max-width:960px;margin:14px auto 0;color:var(--mute);font-size:.92rem}
 .videosec{background:var(--blush)}
+.anote{display:block;margin-top:6px;opacity:.85}

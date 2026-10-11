@@ -76,4 +76,39 @@
     });
     hero.addEventListener('pointerleave', function () { if (phone) phone.style.transform = ''; });
   }
+
+  // Visit statistics events: WhatsApp, email, downloads, outbound links, video play.
+  // Does nothing until src/analytics.json names a provider (window.__ANALYTICS is then set).
+  var cfg = window.__ANALYTICS;
+  if (cfg && navigator.doNotTrack !== '1') {
+    var pageKey = document.body.getAttribute('data-page') || 'page';
+    var send = function (name, section, target) {
+      var path = name + '/' + pageKey + '/' + section;
+      if (cfg.provider === 'goatcounter' && window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: path, title: name + (target ? ': ' + target : ''), event: true });
+      } else if (cfg.provider === 'plausible' && window.plausible) {
+        window.plausible(name, { props: { page: pageKey, section: section, target: target || '' } });
+      } else if (cfg.provider === 'ga4' && window.gtag) {
+        window.gtag('event', name, { page: pageKey, section: section, target: target || '' });
+      }
+    };
+    var sectionOf = function (a) {
+      if (a.classList.contains('wa-float')) return 'floating-button';
+      var s = a.closest('section, header, footer, .topbar');
+      if (!s) return 'page';
+      return s.id || (s.className || '').split(' ')[0] || s.tagName.toLowerCase();
+    };
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      var where = sectionOf(a);
+      if (/^https?:\/\/(wa\.me|api\.whatsapp\.com)\//.test(href)) send('whatsapp-click', where);
+      else if (/^mailto:/.test(href)) send('email-click', where);
+      else if (/\.(pdf|apk)(\?|$)/i.test(href)) send('download', where, href.split('/').pop().split('?')[0]);
+      else if (a.hostname && a.hostname !== location.hostname) send('outbound-click', where, a.hostname + a.pathname.replace(/\/$/, ''));
+    }, true);
+    var video = document.querySelector('video');
+    if (video) video.addEventListener('play', function () { send('video-play', 'video'); }, { once: true });
+  }
 })();

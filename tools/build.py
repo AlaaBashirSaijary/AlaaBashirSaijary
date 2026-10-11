@@ -24,6 +24,7 @@ LANGS = ('en', 'ar')
 from urllib.parse import quote
 WA_NUMBER = '963984668063'
 PRICING = json.loads((Path(__file__).resolve().parent.parent / 'src' / 'pricing.json').read_text(encoding='utf-8'))
+ANALYTICS = json.loads((Path(__file__).resolve().parent.parent / 'src' / 'analytics.json').read_text(encoding='utf-8'))
 DEFAULT_WA = {'en': 'Hello Alaa, I visited your website and would like to talk.',
               'ar': 'مرحباً ألاء، زرت موقعك وأود التحدث معك.'}
 PAGES = {
@@ -58,6 +59,38 @@ APPS = {
                'applicationCategory': 'EducationalApplication', 'operatingSystem': 'Web (PWA)', 'inLanguage': ['ar', 'en']},
 }
 LOCALE = {'en': 'en_US', 'ar': 'ar_AR'}
+
+
+def analytics_html():
+    """Provider script + a tiny config for site.js. Empty when analytics.json has no provider/id."""
+    provider = (ANALYTICS.get('provider') or '').strip()
+    ident = (ANALYTICS.get('id') or '').strip()
+    if not provider or not ident:
+        return ''
+    if not re.fullmatch(r'[A-Za-z0-9._-]+', ident):
+        raise ValueError('analytics id contains unexpected characters')
+    cfg = '<script>window.__ANALYTICS={"provider":"%s"}</script>' % provider
+    if provider == 'goatcounter':
+        tag = '<script data-goatcounter="https://%s.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>' % ident
+    elif provider == 'plausible':
+        tag = '<script defer data-domain="%s" src="https://plausible.io/js/script.js"></script>' % ident
+    elif provider == 'ga4':
+        tag = ('<script async src="https://www.googletagmanager.com/gtag/js?id=%s"></script><script>window.dataLayer=window.dataLayer||[];'
+               'function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","%s",{anonymize_ip:true});</script>' % (ident, ident))
+    else:
+        raise ValueError('unknown analytics provider: %s' % provider)
+    return cfg + tag
+
+
+def analytics_note():
+    provider = (ANALYTICS.get('provider') or '').strip()
+    if not provider or not (ANALYTICS.get('id') or '').strip():
+        return ''
+    if provider == 'ga4':
+        return ('<span class="anote" data-en="This site uses Google Analytics to count visits." '
+                'data-ar="يستخدم هذا الموقع Google Analytics لإحصاء الزيارات.">This site uses Google Analytics to count visits.</span>')
+    return ('<span class="anote" data-en="Visits are counted anonymously, without cookies." '
+            'data-ar="تُحصى الزيارات بشكل مجهول وبلا ملفات تعريف ارتباط.">Visits are counted anonymously, without cookies.</span>')
 
 
 def price_html(group, key, lang):
@@ -207,13 +240,14 @@ LAYOUT = '''<!doctype html>
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{jsonld}</script>
 </head>
-<body>
+<body data-page="{pageid}">
 <a class="skip" href="#top" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
 <div class="progress" id="progress"></div>
 {topbar}
 {header}
 {body}
 {footer}
+{analytics}
 <a class="wa-float" href="{{{{wa_en}}}}" data-href-en="{{{{wa_en}}}}" data-href-ar="{{{{wa_ar}}}}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="wai"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C22 6.45 17.5 2 12.04 2zm5.8 14.11c-.24.68-1.4 1.32-1.93 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09.99-2.38c.26-.28.56-.35.75-.35h.54c.17 0 .41-.02.62.48.24.58.81 2 .88 2.15.07.15.11.32.02.51-.08.19-.13.3-.26.46-.13.16-.28.36-.4.48-.13.13-.27.27-.12.53.15.26.67 1.11 1.44 1.8 1 .89 1.83 1.17 2.09 1.3.26.13.41.11.56-.07.15-.17.65-.76.83-1.02.17-.26.34-.21.57-.13.24.09 1.5.71 1.76.84.26.13.43.19.49.3.07.11.07.61-.17 1.29z"/></svg><span class="lbl" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span></a>
 <script src="{{{{root}}}}site.js?v={js_v}" defer></script>
 </body>
@@ -232,7 +266,7 @@ def build_page(lang, page, css_v, js_v):
     esc = lambda v: v.replace('&', '&amp;').replace('"', '&quot;')
     html = LAYOUT.format(
         lang=lang, dir='rtl' if lang == 'ar' else 'ltr', title=esc(title), desc=esc(desc), url=page_url(lang, page),
-        alternates=alts, locale=LOCALE[lang], locale_alt=LOCALE[other], css_v=css_v, js_v=js_v,
+        pageid='%s-%s' % (page, lang), analytics=analytics_html(), alternates=alts, locale=LOCALE[lang], locale_alt=LOCALE[other], css_v=css_v, js_v=js_v,
         og=SITE + 'assets/%s-%s.png' % (PAGES[page]['og'], lang), jsonld='@@JSONLD@@',
         topbar=partial('topbar-product.html' if product else 'topbar.html'),
         header=partial('header-product.html' if product else 'header.html'), body=body, footer=partial('footer.html'))
@@ -249,6 +283,7 @@ def build_page(lang, page, css_v, js_v):
             '{{other_product}}': tokens['{{school}}'] if other_id == 'school' else tokens['{{clinic}}'],
             '{{other_name_en}}': names[0], '{{other_name_ar}}': names[1],
         })
+    tokens['{{analytics_note}}'] = analytics_note()
     for token, value in tokens.items():
         html = html.replace(token, value)
     html = re.sub(r'\{\{price:(\w+)\.(\w+)\}\}', lambda m: price_html(m.group(1), m.group(2), lang), html)
