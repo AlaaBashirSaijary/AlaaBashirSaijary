@@ -367,3 +367,32 @@ footer a:hover{color:#fff}
 @media(max-width:900px){.stage:has(>.dash){height:auto;padding:8px 0 28px;overflow:visible}}
 .btn .wai{width:20px;height:20px;flex:none}
 .cinfo .ico .wai{width:30px;height:30px;color:var(--deep)}
+
+/* audience paths + products (home) */
+.topbar svg.wai{fill:currentColor;stroke:none;color:var(--rose)}
+.paths{padding-block:28px 0}
+.pgrid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pathcard{display:flex;align-items:center;gap:18px;border:1px solid var(--line);border-radius:22px;padding:24px 28px;background:#fff;transition:transform .5s var(--out),box-shadow .5s,background .4s}
+.pathcard:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(74,25,66,.14)}
+.pathcard strong{display:block;font:800 1.3rem var(--head);color:var(--deep);margin-bottom:4px}
+.pathcard span{color:var(--mute);font-size:.98rem}
+.pathcard .arr{margin-inline-start:auto;font-style:normal;font-size:1.6rem;color:var(--rose-ink);transition:transform .4s var(--out)}
+[dir=rtl] .pathcard .arr{transform:scaleX(-1)}
+.pathcard:hover .arr{transform:translateX(6px)}
+[dir=rtl] .pathcard:hover .arr{transform:scaleX(-1) translateX(6px)}
+.pathcard.buy{background:linear-gradient(120deg,var(--deep),var(--deep2));border-color:transparent}
+.pathcard.buy strong{color:#fff}.pathcard.buy span{color:#f3dce8}.pathcard.buy .arr{color:var(--rose)}
+@media(max-width:800px){.pgrid2{grid-template-columns:1fr}}
+.products{background:#fff}
+.prodgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+.prod{background:var(--blush);border-radius:26px;padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;gap:14px}
+.prod .viz{display:grid;place-items:center;padding:14px 0 26px;min-height:240px;position:relative}
+.prod .viz .ipad,.prod .viz .dash{width:min(100%,330px)}
+.prod .viz .qrb{inset-inline-end:14%}
+.prod h3{font-weight:800;font-size:1.6rem;color:var(--deep)}
+.prod p{color:var(--mute)}
+.prod ul.pts{list-style:none;padding:0;display:grid;gap:8px;margin:4px 0 10px}
+.prod ul.pts li{display:flex;gap:10px;font-weight:500}
+.prod ul.pts li::before{content:"✓";color:var(--rose-ink);font-weight:800}
+.prod .ctas{margin-top:auto}
+@media(max-width:900px){.prodgrid{grid-template-columns:1fr}.prod .ctas .btn{flex:1 1 200px;justify-content:center}}
