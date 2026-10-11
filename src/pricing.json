@@ -1,0 +1,22 @@
+{
+  "_help": "Fill display_en / display_ar (text shown on the card) and usd (a number, used for search results). Leave them empty to show 'Ask for a quote'.",
+  "clinic": {
+    "license": {
+      "display_en": "",
+      "display_ar": "",
+      "usd": null
+    }
+  },
+  "school": {
+    "license": {
+      "display_en": "",
+      "display_ar": "",
+      "usd": null
+    },
+    "managed": {
+      "display_en": "",
+      "display_ar": "",
+      "usd": null
+    }
+  }
+}
