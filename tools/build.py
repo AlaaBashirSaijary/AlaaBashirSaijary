@@ -161,6 +161,11 @@ def json_ld(soup, lang, page):
             dict({'@type': 'SoftwareApplication', '@id': url + '#app', 'description': desc, 'url': url, 'featureList': feats,
                   'author': {'@type': 'Person', '@id': SITE + '#person', 'name': 'Alaa Bashir Saijary'}}, **app),
         ]
+    if page == 'school':
+        graph.append({'@type': 'VideoObject', 'name': 'Education ERP: school management system demo' if lang == 'en' else 'عرض نظام Education ERP لإدارة المدارس',
+                      'description': 'A two-minute screen recording of the Education ERP interactive demo with Arabic voice-over.' if lang == 'en' else 'تسجيل شاشة مدته دقيقتان للعرض التفاعلي لنظام Education ERP بتعليق صوتي عربي.',
+                      'thumbnailUrl': SITE + 'assets/school-demo-poster.jpg', 'uploadDate': '2026-10-11', 'duration': 'PT2M10S',
+                      'contentUrl': SITE + 'assets/school-demo-ar.mp4', 'inLanguage': 'ar', 'author': person})
     if faq:
         graph.append({'@type': 'FAQPage', 'mainEntity': faq})
     return {'@context': 'https://schema.org', '@graph': graph}
