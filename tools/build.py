@@ -21,26 +21,32 @@ MANHAJ = 'https://alaabashirsaijary.github.io/manhaj-hayah/'
 CLINIC_SITE = 'https://alaabashirsaijary.github.io/ClinicManagerFlutter/'
 LANGS = ('en', 'ar')
 
+from urllib.parse import quote
+WA_NUMBER = '963984668063'
 PAGES = {
     'home': {'path': '', 'src': 'home.html', 'og': 'og-home', 'meta': {
         'en': ('Alaa Saijary | Flutter & Laravel Developer in Syria',
                'Computer engineer and mobile app developer in Syria. Flutter apps and Laravel web solutions: Lirati, Manhaj Hayah and Aayadati. See my work and download my CV.'),
         'ar': ('ألاء سيجري | مطوّرة تطبيقات Flutter وLaravel في سوريا',
                'ألاء سيجري مهندسة حاسوب ومطوّرة تطبيقات موبايل من سوريا. أبني تطبيقات Flutter وحلول ويب بـ Laravel مثل Lirati ومنهج حياة وعيادتي. اطّلع على أعمالي وسيرتي الذاتية.')}},
-    'clinic': {'path': 'clinic-manager/', 'src': 'clinic.html', 'og': 'og-clinic', 'meta': {
+    'clinic': {'path': 'clinic-manager/', 'src': 'clinic.html', 'og': 'og-clinic', 'kind': 'product',
+               'wa': {'en': "Hello, I'd like to know more about the Aayadati clinic app and try the free version.",
+                      'ar': 'مرحباً، أريد معرفة المزيد عن تطبيق عيادتي وتجربة النسخة المجانية.'}, 'meta': {
         'en': ('Aayadati: Offline Clinic Management App for Doctors',
                'Aayadati is a clinic management app that works fully offline: patient records, appointments, prescriptions and reports in Arabic. One-time payment, 14-day free trial.'),
         'ar': ('عيادتي: تطبيق إدارة عيادات طبية يعمل بلا إنترنت',
                'عيادتي تطبيق لإدارة العيادات الطبية يعمل بلا إنترنت: سجلات المرضى والمواعيد والوصفات والتقارير بواجهة عربية. دفعة واحدة بلا اشتراك وتجربة مجانية 14 يوماً.')}},
 }
-PAGES['school'] = {'path': 'school-management-system/', 'src': 'school.html', 'og': 'og-school', 'meta': {
+PAGES['school'] = {'path': 'school-management-system/', 'src': 'school.html', 'og': 'og-school', 'kind': 'product',
+                   'wa': {'en': 'Hello, I would like a quote for the Education ERP school management system.',
+                          'ar': 'مرحباً، أريد عرض سعر لنظام Education ERP لإدارة المدارس.'}, 'meta': {
     'en': ('Education ERP: School Management System with QR Attendance and Fees',
            'Education ERP is a school management system: QR attendance, grades and report cards, fees and receipts, WhatsApp/SMS parent alerts and timetables. Arabic and English, with a mobile app and live demo.'),
     'ar': ('Education ERP: نظام إدارة مدارس بحضور QR وأقساط وإشعارات للأهل',
            'Education ERP نظام لإدارة المدارس: حضور بالـ QR، علامات وشهادات، أقساط وإيصالات، إشعارات واتساب/SMS لأولياء الأمور وجداول حصص. عربي وإنجليزي مع تطبيق موبايل وعرض تفاعلي.')}}
 CRUMB = {'en': 'Home', 'ar': 'الرئيسية'}
 CLINIC_NAME = {'en': 'Aayadati: clinic management app', 'ar': 'عيادتي: تطبيق إدارة العيادات'}
-PAGE_NAME = {'clinic': CLINIC_NAME, 'school': {'en': 'Education ERP: school management system', 'ar': 'Education ERP: نظام إدارة المدارس'}}
+PAGE_NAME = {'clinic': CLINIC_NAME, 'school': {'en': 'Education ERP: school management system', 'ar': 'نظام Education ERP لإدارة المدارس'}}
 ROLE = {'en': 'Mobile & Web Developer', 'ar': 'مطوّرة تطبيقات موبايل وويب'}
 APPS = {
     'clinic': {'name': 'Aayadati', 'alternateName': ['عيادتي', 'Clinic Manager'], 'applicationCategory': 'HealthApplication',
@@ -200,6 +206,7 @@ def build_page(lang, page, css_v, js_v):
     other = 'ar' if lang == 'en' else 'en'
     partial = lambda n: (SRC / 'partials' / n).read_text(encoding='utf-8')
     body = (SRC / PAGES[page]['src']).read_text(encoding='utf-8')
+    product = PAGES[page].get('kind') == 'product'
     alts = ''.join('<link rel="alternate" hreflang="%s" href="%s">\n' % (l, page_url(l, page)) for l in LANGS)
     alts += '<link rel="alternate" hreflang="x-default" href="%s">' % page_url('en', page)
     esc = lambda v: v.replace('&', '&amp;').replace('"', '&quot;')
@@ -207,8 +214,19 @@ def build_page(lang, page, css_v, js_v):
         lang=lang, dir='rtl' if lang == 'ar' else 'ltr', title=esc(title), desc=esc(desc), url=page_url(lang, page),
         alternates=alts, locale=LOCALE[lang], locale_alt=LOCALE[other], css_v=css_v, js_v=js_v,
         og=SITE + 'assets/%s-%s.png' % (PAGES[page]['og'], lang), jsonld='@@JSONLD@@',
-        topbar=partial('topbar.html'), header=partial('header.html'), body=body, footer=partial('footer.html'))
-    for token, value in rel_links(lang, page).items():
+        topbar=partial('topbar-product.html' if product else 'topbar.html'),
+        header=partial('header-product.html' if product else 'header.html'), body=body, footer=partial('footer.html'))
+    tokens = rel_links(lang, page)
+    if product:
+        other_id = 'school' if page == 'clinic' else 'clinic'
+        names = {'school': ('School ERP', 'نظام المدارس'), 'clinic': ('Aayadati clinic app', 'تطبيق عيادتي')}[other_id]
+        tokens.update({
+            '{{other_product}}': tokens['{{school}}'] if other_id == 'school' else tokens['{{clinic}}'],
+            '{{other_name_en}}': names[0], '{{other_name_ar}}': names[1],
+            '{{wa_en}}': 'https://wa.me/%s?text=%s' % (WA_NUMBER, quote(PAGES[page]['wa']['en'])),
+            '{{wa_ar}}': 'https://wa.me/%s?text=%s' % (WA_NUMBER, quote(PAGES[page]['wa']['ar'])),
+        })
+    for token, value in tokens.items():
         html = html.replace(token, value)
     soup = localize(html, lang)
     ld = json.dumps(json_ld(soup, lang, page), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
