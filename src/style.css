@@ -425,3 +425,9 @@ footer a:hover{color:#fff}
 @keyframes wapulse{0%{box-shadow:0 14px 34px rgba(0,0,0,.28),0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 14px 34px rgba(0,0,0,.28),0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 14px 34px rgba(0,0,0,.28),0 0 0 0 rgba(37,211,102,0)}}
 @media(max-width:700px){.wa-float{padding:14px}[dir=rtl] .wa-float{padding:14px}.wa-float .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}footer .fgrid{padding-bottom:88px}}
 @media(prefers-reduced-motion:reduce){.wa-float{animation:none}}
+
+/* video */
+.video-frame{max-width:960px;margin:34px auto 0;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 30px 70px rgba(46,15,42,.28)}
+.video-frame video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
+.vnote{max-width:960px;margin:14px auto 0;color:var(--mute);font-size:.92rem}
+.videosec{background:var(--blush)}
