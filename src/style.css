@@ -433,9 +433,9 @@ footer a:hover{color:#fff}
 .videosec{background:var(--blush)}
 .anote{display:block;margin-top:6px;opacity:.85}
 
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+.gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:36px}
 .gshot{margin:0;text-align:center}
 .gshot img{width:100%;max-width:260px;height:auto;border-radius:26px;border:1px solid rgba(74,25,66,.12);box-shadow:0 18px 40px -18px rgba(74,25,66,.35)}
 .gshot figcaption{margin-top:12px;font-weight:600;color:var(--deep)}
-@media(max-width:900px){.gallery{grid-template-columns:1fr 1fr}}
+@media(max-width:1000px){.gallery{grid-template-columns:repeat(3,1fr)}}@media(max-width:700px){.gallery{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.gallery{gap:14px}.gshot figcaption{font-size:.9rem}}
