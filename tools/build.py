@@ -139,8 +139,10 @@ def localize(html, lang):
             el.append(node)
     for el in soup.find_all(attrs={'data-href-' + lang: True}):
         el['href'] = el['data-href-' + lang]
+    for el in soup.find_all(attrs={'data-alt-' + lang: True}):
+        el['alt'] = el['data-alt-' + lang]
     for el in soup.find_all(True):
-        for attr in [a for a in el.attrs if a in ('data-en', 'data-ar') or a.startswith('data-href-')]:
+        for attr in [a for a in el.attrs if a in ('data-en', 'data-ar') or a.startswith('data-href-') or a.startswith('data-alt-')]:
             del el.attrs[attr]
     return soup
 
