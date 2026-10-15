@@ -48,6 +48,11 @@ PAGES['school'] = {'path': 'school-management-system/', 'src': 'school.html', 'o
            'Education ERP is a school management system: QR attendance, grades and report cards, fees and receipts, WhatsApp/SMS parent alerts and timetables. Arabic and English, with a mobile app and live demo.'),
     'ar': ('Education ERP: نظام إدارة مدارس بحضور QR وأقساط وإشعارات للأهل',
            'Education ERP نظام لإدارة المدارس: حضور بالـ QR، علامات وشهادات، أقساط وإيصالات، إشعارات واتساب/SMS لأولياء الأمور وجداول حصص. عربي وإنجليزي مع تطبيق موبايل وعرض تفاعلي.')}}
+PAGES['legal'] = {'path': 'privacy/', 'src': 'legal.html', 'og': 'og-home', 'meta': {
+    'en': ('Privacy Policy & Terms of Use | Alaa Saijary',
+           'How this website and the Aayadati, Education ERP and Manhaj Hayah apps handle data, plus the terms of use and licence for my software.'),
+    'ar': ('سياسة الخصوصية وشروط الاستخدام | ألاء سيجري',
+           'كيف يتعامل هذا الموقع وتطبيقات عيادتي وEducation ERP ومنهج حياة مع البيانات، مع شروط الاستخدام والترخيص لبرامجي.')}}
 CRUMB = {'en': 'Home', 'ar': 'الرئيسية'}
 CLINIC_NAME = {'en': 'Aayadati: clinic management app', 'ar': 'عيادتي: تطبيق إدارة العيادات'}
 PAGE_NAME = {'clinic': CLINIC_NAME, 'school': {'en': 'Education ERP: school management system', 'ar': 'نظام Education ERP لإدارة المدارس'}}
@@ -120,6 +125,7 @@ def rel_links(lang, page):
         '{{root}}': root, '{{home}}': home, '{{clinic}}': home + 'clinic-manager/' if page != 'clinic' else './',
         '{{school}}': home + 'school-management-system/' if page != 'school' else './',
         '{{school}}': home + 'school-management-system/' if page != 'school' else './',
+        '{{privacy}}': home + 'privacy/' if page != 'legal' else './',
         '{{other}}': (root + out_dir(other, page)) or './',
         '{{other_lang}}': other,
         '{{cv}}': root + ('cv/Alaa-Saijary-CV.pdf' if lang == 'en' else 'cv/Alaa-Saijary-CV-ar.pdf'),
@@ -181,6 +187,13 @@ def json_ld(soup, lang, page):
              'applicationCategory': 'ReferenceApplication', 'operatingSystem': 'Android 7.0+', 'inLanguage': ['ar', 'en'],
              'author': person},
         ]
+    elif page == 'legal':
+        graph += [
+            {'@type': 'BreadcrumbList', 'itemListElement': [
+                {'@type': 'ListItem', 'position': 1, 'name': CRUMB[lang], 'item': page_url(lang, 'home')},
+                {'@type': 'ListItem', 'position': 2, 'name': title.split(' | ')[0], 'item': url}]},
+            {'@type': 'WebPage', '@id': url + '#page', 'url': url, 'name': title, 'description': desc, 'inLanguage': lang,
+             'isPartOf': {'@id': SITE + '#website'}}]
     else:
         feats = [text(h) for h in soup.select('#features .fcard h3')]
         app = dict(APPS[page])
@@ -329,7 +342,7 @@ def main():
         for lang in LANGS:
             alts = ''.join('    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>\n' % (l, page_url(l, page)) for l in LANGS)
             alts += '    <xhtml:link rel="alternate" hreflang="x-default" href="%s"/>\n' % page_url('en', page)
-            prio = '1.0' if page == 'home' and lang == 'en' else '0.9' if page == 'home' else '0.8'
+            prio = '1.0' if page == 'home' and lang == 'en' else '0.9' if page == 'home' else '0.3' if page == 'legal' else '0.8'
             urls.append('  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n    <priority>%s</priority>\n%s  </url>' % (page_url(lang, page), day, prio, alts))
     (OUT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
