@@ -104,7 +104,8 @@ def price_html(group, key, lang):
     entry = PRICING.get(group, {}).get(key, {})
     shown = (entry.get('display_' + lang) or '').strip()
     if shown:
-        return '<span class="amount">%s</span>' % shown
+        per = '<small class="per">%s</small>' % entry['per_' + lang] if entry.get('per_' + lang) else ''
+        return '<span class="amount">%s</span>%s' % (shown, per)
     return '<span class="amount ask" data-en="Ask for a quote" data-ar="اطلب عرض سعر">Ask for a quote</span>'
 
 

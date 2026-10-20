@@ -1,17 +1,21 @@
 {
-  "_help": "Fill display_en / display_ar (text shown on the card) and usd (a number, used for search results). Leave them empty to show 'Ask for a quote'.",
+  "_help": "Fill display_en / display_ar (text shown on the card), per_en / per_ar (small text beside the price) and usd (a number, used for search results). Leave display empty to show 'Ask for a quote'.",
   "clinic": {
     "license": {
-      "display_en": "",
-      "display_ar": "",
-      "usd": null
+      "display_en": "$150",
+      "display_ar": "150$",
+      "per_en": "one-time payment",
+      "per_ar": "دفعة واحدة",
+      "usd": 150
     }
   },
   "school": {
     "license": {
-      "display_en": "",
-      "display_ar": "",
-      "usd": null
+      "display_en": "$400",
+      "display_ar": "400$",
+      "per_en": "one-time payment",
+      "per_ar": "دفعة واحدة",
+      "usd": 400
     }
   }
 }
