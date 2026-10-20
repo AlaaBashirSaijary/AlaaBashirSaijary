@@ -453,3 +453,6 @@ footer a:hover{color:#fff}
 .legal ul{padding-inline-start:1.3em;margin:8px 0}
 .legal li{margin:6px 0}
 .legal-contact{margin-top:40px;padding:22px 24px;background:var(--blush);border-radius:18px}
+
+.amount .per,.price .per{font:600 .9rem var(--body,inherit);color:var(--mute);margin-inline-start:8px}
+.plan-offer{font-size:.92rem;color:var(--rose-ink);background:var(--blush);border-radius:12px;padding:8px 12px;margin:6px 0 0}
