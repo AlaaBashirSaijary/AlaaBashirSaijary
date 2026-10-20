@@ -456,3 +456,8 @@ footer a:hover{color:#fff}
 
 .amount .per,.price .per{font:600 .9rem var(--body,inherit);color:var(--mute);margin-inline-start:8px}
 .plan-offer{font-size:.92rem;color:var(--rose-ink);background:var(--blush);border-radius:12px;padding:8px 12px;margin:6px 0 0}
+
+.pprice{margin:2px 0}
+.pprice .amount{font-size:2rem}
+.pprice .amount.ask{font-size:1.2rem}
+.pprice .per{font-weight:600;font-size:.9rem;color:var(--mute);margin-inline-start:8px}
