@@ -112,3 +112,46 @@
     if (video) video.addEventListener('play', function () { send('video-play', 'video'); }, { once: true });
   }
 })();
+
+/* collaboration brief builder: composes a message client-side, nothing is stored or sent */
+(function () {
+  var root = document.querySelector('[data-brief]');
+  if (!root) return;
+  var ar = document.documentElement.lang === 'ar';
+  var $ = function (id) { return document.getElementById(id); };
+  var out = $('b-out'), wa = $('b-wa'), mail = $('b-mail'), copy = $('b-copy');
+  var label = function (id) { var s = $(id); return s.options[s.selectedIndex].textContent.trim(); };
+  var val = function (id) { return $(id).value.trim(); };
+  function compose() {
+    var name = val('b-name'), org = val('b-org'), goal = val('b-goal'), L = [];
+    if (ar) {
+      L.push('مرحباً ألاء،');
+      L.push('أنا ' + (name ? name + ' - ' : '') + label('b-role') + (org ? ' (' + org + ')' : '') + '.');
+      L.push('أريد مناقشة ' + label('b-int') + '، ' + label('b-time') + '.');
+      if (goal) L.push('الهدف: ' + goal);
+      L.push('وصلتُ إليك عبر موقعك.');
+    } else {
+      L.push('Hello Alaa,');
+      L.push("I'm " + (name ? name + ', ' : '') + label('b-role').toLowerCase() + (org ? ' at ' + org : '') + '.');
+      L.push("I'd like to discuss " + label('b-int') + ', ' + label('b-time') + '.');
+      if (goal) L.push('Goal: ' + goal);
+      L.push('I found you through your website.');
+    }
+    return L.join('\n');
+  }
+  function update() {
+    var t = compose();
+    out.value = t;
+    wa.href = 'https://wa.me/963984668063?text=' + encodeURIComponent(t);
+    mail.href = 'mailto:alaabashersaijary@gmail.com?subject=' + encodeURIComponent(ar ? 'طلب تعاون' : 'Collaboration enquiry') + '&body=' + encodeURIComponent(t);
+  }
+  root.addEventListener('input', update);
+  root.addEventListener('change', update);
+  copy.addEventListener('click', function () {
+    var done = function () { var s = copy.querySelector('span'), o = s.textContent; s.textContent = ar ? 'تم النسخ' : 'Copied'; setTimeout(function () { s.textContent = o; }, 1600); };
+    out.select();
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(out.value).then(done, function () { try { document.execCommand('copy'); done(); } catch (e) {} });
+    else { try { document.execCommand('copy'); done(); } catch (e) {} }
+  });
+  update();
+})();
