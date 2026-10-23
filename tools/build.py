@@ -55,6 +55,11 @@ PAGES['legal'] = {'path': 'privacy/', 'src': 'legal.html', 'og': 'og-home', 'met
            'How this website and the Aayadati, Education ERP and Manhaj Hayah apps handle data, plus the terms of use and licence for my software.'),
     'ar': ('سياسة الخصوصية وشروط الاستخدام | ألاء سيجري',
            'كيف يتعامل هذا الموقع وتطبيقات عيادتي وEducation ERP ومنهج حياة مع البيانات، مع شروط الاستخدام والترخيص لبرامجي.')}}
+PAGES['collaborate'] = {'path': 'collaborate/', 'src': 'collaborate.html', 'og': 'og-home', 'meta': {
+    'en': ('Collaborate | Research & Industry Partnerships | Alaa Saijary',
+           'Offline-first, Arabic-first software for health and education. Research partnerships, pilots, licensing and custom builds with Alaa Saijary, computer engineer and M.Sc. candidate.'),
+    'ar': ('تعاون معي | شراكات بحثية وصناعية | ألاء سيجري',
+           'برمجيات تعمل دون إنترنت وبالعربية أولاً للصحة والتعليم. شراكات بحثية وتجارب وترخيص وحلول مخصصة مع ألاء سيجري، مهندسة حاسوب وطالبة ماجستير.')}}
 CRUMB = {'en': 'Home', 'ar': 'الرئيسية'}
 CLINIC_NAME = {'en': 'Aayadati: clinic management app', 'ar': 'عيادتي: تطبيق إدارة العيادات'}
 PAGE_NAME = {'clinic': CLINIC_NAME, 'school': {'en': 'Education ERP: school management system', 'ar': 'نظام Education ERP لإدارة المدارس'}}
@@ -128,6 +133,7 @@ def rel_links(lang, page):
         '{{root}}': root, '{{home}}': home, '{{clinic}}': home + 'clinic-manager/' if page != 'clinic' else './',
         '{{school}}': home + 'school-management-system/' if page != 'school' else './',
         '{{school}}': home + 'school-management-system/' if page != 'school' else './',
+        '{{collab}}': home + 'collaborate/' if page != 'collaborate' else './',
         '{{privacy}}': home + 'privacy/' if page != 'legal' else './',
         '{{other}}': (root + out_dir(other, page)) or './',
         '{{other_lang}}': other,
@@ -150,8 +156,10 @@ def localize(html, lang):
         el['href'] = el['data-href-' + lang]
     for el in soup.find_all(attrs={'data-alt-' + lang: True}):
         el['alt'] = el['data-alt-' + lang]
+    for el in soup.find_all(attrs={'data-ph-' + lang: True}):
+        el['placeholder'] = el['data-ph-' + lang]
     for el in soup.find_all(True):
-        for attr in [a for a in el.attrs if a in ('data-en', 'data-ar') or a.startswith('data-href-') or a.startswith('data-alt-')]:
+        for attr in [a for a in el.attrs if a in ('data-en', 'data-ar') or a.startswith('data-href-') or a.startswith('data-alt-') or a.startswith('data-ph-')]:
             del el.attrs[attr]
     return soup
 
@@ -190,7 +198,7 @@ def json_ld(soup, lang, page):
              'applicationCategory': 'ReferenceApplication', 'operatingSystem': 'Android 7.0+', 'inLanguage': ['ar', 'en'],
              'author': person},
         ]
-    elif page == 'legal':
+    elif page in ('legal', 'collaborate'):
         graph += [
             {'@type': 'BreadcrumbList', 'itemListElement': [
                 {'@type': 'ListItem', 'position': 1, 'name': CRUMB[lang], 'item': page_url(lang, 'home')},
@@ -345,7 +353,7 @@ def main():
         for lang in LANGS:
             alts = ''.join('    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>\n' % (l, page_url(l, page)) for l in LANGS)
             alts += '    <xhtml:link rel="alternate" hreflang="x-default" href="%s"/>\n' % page_url('en', page)
-            prio = '1.0' if page == 'home' and lang == 'en' else '0.9' if page == 'home' else '0.3' if page == 'legal' else '0.8'
+            prio = '1.0' if page == 'home' and lang == 'en' else '0.9' if page == 'home' else '0.3' if page == 'legal' else '0.7' if page == 'collaborate' else '0.8'
             urls.append('  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n    <priority>%s</priority>\n%s  </url>' % (page_url(lang, page), day, prio, alts))
     (OUT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '

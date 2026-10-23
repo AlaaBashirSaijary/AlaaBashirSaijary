@@ -461,3 +461,34 @@ footer a:hover{color:#fff}
 .pprice .amount{font-size:2rem}
 .pprice .amount.ask{font-size:1.2rem}
 .pprice .per{font-weight:600;font-size:.9rem;color:var(--mute);margin-inline-start:8px}
+
+/* collaborate page */
+.collabhead{padding-bottom:36px}
+.proof{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:30px 0 26px}
+.pf{background:var(--blush);border-radius:18px;padding:18px 20px;display:grid;gap:4px}
+.pf b{font:800 1.25rem var(--head);color:var(--deep)}
+.pf span{color:var(--mute);font-size:.92rem}
+.collabhead .cta{margin-top:6px}
+.qlist{list-style:none;padding:0;margin:26px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qlist li{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px;font-weight:600;color:var(--deep);line-height:1.6;position:relative;padding-inline-start:54px}
+.qlist li::before{content:"?";position:absolute;inset-inline-start:18px;top:16px;width:26px;height:26px;border-radius:50%;background:var(--rose);color:var(--deep);display:grid;place-items:center;font-weight:800}
+.brief{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px;align-items:start}
+.bform,.bout{background:var(--blush);border-radius:24px;padding:26px;display:grid;gap:14px}
+.fld{display:grid;gap:6px;font-weight:600;color:var(--deep)}
+.fld input,.fld select,.fld textarea,.bout textarea{width:100%;font:inherit;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 14px}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--rose-ink);outline-offset:1px}
+.bout textarea{resize:none;line-height:1.7;background:#fff}
+.bout h3{color:var(--deep)}
+.bbtns{display:flex;gap:10px;flex-wrap:wrap}
+.bnote{color:var(--mute)}
+.nojs-contact{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.js .nojs-contact{display:none}
+html:not(.js) .brief{display:none}
+.collabband{background:var(--blush);padding-block:clamp(48px,7vw,84px)}
+.collabband .wrap{display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.collabband h2{color:var(--deep);margin:6px 0 10px;max-width:22ch}
+.collabband p{color:var(--mute);max-width:60ch}
+.collabband .btn.light{background:var(--deep);color:#fff}
+@media(max-width:1000px){.proof{grid-template-columns:1fr 1fr}.brief{grid-template-columns:1fr}}
+@media(max-width:700px){.qlist{grid-template-columns:1fr}}
+@media(max-width:480px){.proof{grid-template-columns:1fr}}
