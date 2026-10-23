@@ -492,3 +492,23 @@ html:not(.js) .brief{display:none}
 @media(max-width:1000px){.proof{grid-template-columns:1fr 1fr}.brief{grid-template-columns:1fr}}
 @media(max-width:700px){.qlist{grid-template-columns:1fr}}
 @media(max-width:480px){.proof{grid-template-columns:1fr}}
+
+/* trust + about */
+.trust{background:var(--blush);padding-block:clamp(56px,8vw,96px)}
+.proofgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.pcheck{display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 24px;transition:transform .4s,box-shadow .4s}
+.pcheck:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(74,25,66,.13)}
+.pcheck b{font:800 1.2rem var(--head);color:var(--deep)}
+.pcheck p{color:var(--mute);font-size:.97rem;line-height:1.7}
+.pcheck .go{margin-top:auto;padding-top:6px;color:var(--rose-ink);font-weight:700}
+.pcheck .go i{font-style:normal;display:inline-block;transition:transform .3s}
+.pcheck:hover .go i{transform:translateX(4px)}
+[dir=rtl] .pcheck .go i{transform:scaleX(-1)}
+[dir=rtl] .pcheck:hover .go i{transform:scaleX(-1) translateX(4px)}
+.trustnote{margin-top:22px;color:var(--mute)}
+.trustnote a{color:var(--rose-ink);font-weight:700;margin-inline-start:6px}
+.facts{list-style:none;padding:0;display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 16px}
+.facts li{background:var(--blush);color:var(--deep);border-radius:99px;padding:6px 14px;font-weight:600;font-size:.92rem}
+.card-big .portrait{width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block}
+@media(max-width:1000px){.proofgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.proofgrid{grid-template-columns:1fr}}

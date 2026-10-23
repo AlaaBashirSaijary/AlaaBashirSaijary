@@ -286,6 +286,10 @@ def build_page(lang, page, css_v, js_v):
     other = 'ar' if lang == 'en' else 'en'
     partial = lambda n: (SRC / 'partials' / n).read_text(encoding='utf-8')
     body = (SRC / PAGES[page]['src']).read_text(encoding='utf-8')
+    body = body.replace('<!--trust-->', partial('trust.html'))
+    portrait = next((p for p in ('alaa.webp', 'alaa.jpg', 'alaa.png') if (ROOT / 'assets' / p).exists()), None)
+    if portrait and page == 'home':
+        body = body.replace('<div class="mono">A<em>.</em>S</div>', '<img class="portrait" src="{{root}}assets/%s" width="640" height="800" decoding="async" alt="Alaa Saijary" data-alt-en="Alaa Saijary, computer engineer and developer" data-alt-ar="ألاء سيجري، مهندسة حاسوب ومطوّرة">' % portrait)
     product = PAGES[page].get('kind') == 'product'
     alts = ''.join('<link rel="alternate" hreflang="%s" href="%s">\n' % (l, page_url(l, page)) for l in LANGS)
     alts += '<link rel="alternate" hreflang="x-default" href="%s">' % page_url('en', page)
