@@ -512,3 +512,7 @@ html:not(.js) .brief{display:none}
 .card-big .portrait{width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block}
 @media(max-width:1000px){.proofgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.proofgrid{grid-template-columns:1fr}}
+
+.clientq{margin:28px 0 0;background:#fff;border:1px solid var(--line);border-inline-start:5px solid var(--rose-ink);border-radius:20px;padding:22px 26px}
+.clientq blockquote{margin:0;font:600 clamp(1.1rem,2.4vw,1.45rem)/1.7 var(--head);color:var(--deep)}
+.clientq figcaption{margin-top:10px;color:var(--mute);font-size:.92rem}
