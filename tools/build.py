@@ -60,6 +60,16 @@ PAGES['collaborate'] = {'path': 'collaborate/', 'src': 'collaborate.html', 'og':
            'Offline-first, Arabic-first software for health and education. Research partnerships, pilots, licensing and custom builds with Alaa Saijary, computer engineer and M.Sc. candidate.'),
     'ar': ('تعاون معي | شراكات بحثية وصناعية | ألاء سيجري',
            'برمجيات تعمل دون إنترنت وبالعربية أولاً للصحة والتعليم. شراكات بحثية وتجارب وترخيص وحلول مخصصة مع ألاء سيجري، مهندسة حاسوب وطالبة ماجستير.')}}
+PAGES['case_school'] = {'path': 'work/education-erp/', 'src': 'case_school.html', 'og': 'og-school', 'kind': 'article', 'meta': {
+    'en': ('Case Study: Education ERP School Management System | Alaa Saijary',
+           'How I designed Education ERP: Arabic-first, four roles, a separate copy and database per school, and parent messages through a logged queue. Built with Laravel 11 and Livewire.'),
+    'ar': ('دراسة حالة: نظام Education ERP لإدارة المدارس | ألاء سيجري',
+           'كيف صمّمتُ Education ERP: عربي أولاً وأربعة أدوار ونسخة وقاعدة بيانات منفصلة لكل مدرسة ورسائل للأهل عبر طابور مسجّل. بُني بـ Laravel 11 وLivewire.')}}
+PAGES['case_manhaj'] = {'path': 'work/manhaj-hayah/', 'src': 'case_manhaj.html', 'og': 'og-home', 'kind': 'article', 'meta': {
+    'en': ('Case Study: Manhaj Hayah Offline Quran and Prayer App | Alaa Saijary',
+           'How I built Manhaj Hayah, a free offline Android app for the Quran, prayer times and azkar with no ads, no accounts and no trackers. Built with Flutter, 500+ active users.'),
+    'ar': ('دراسة حالة: تطبيق منهج حياة للقرآن والصلاة دون إنترنت | ألاء سيجري',
+           'كيف بنيتُ منهج حياة، تطبيق أندرويد مجاني يعمل دون إنترنت للقرآن ومواقيت الصلاة والأذكار، بلا إعلانات ولا حسابات ولا متتبّعات. بُني بـ Flutter ولأكثر من 500 مستخدم نشط.')}}
 CRUMB = {'en': 'Home', 'ar': 'الرئيسية'}
 CLINIC_NAME = {'en': 'Aayadati: clinic management app', 'ar': 'عيادتي: تطبيق إدارة العيادات'}
 PAGE_NAME = {'clinic': CLINIC_NAME, 'school': {'en': 'Education ERP: school management system', 'ar': 'نظام Education ERP لإدارة المدارس'}}
@@ -198,7 +208,7 @@ def json_ld(soup, lang, page):
              'applicationCategory': 'ReferenceApplication', 'operatingSystem': 'Android 7.0+', 'inLanguage': ['ar', 'en'],
              'author': person},
         ]
-    elif page in ('legal', 'collaborate'):
+    elif page in ('legal', 'collaborate') or PAGES[page].get('kind') == 'article':
         graph += [
             {'@type': 'BreadcrumbList', 'itemListElement': [
                 {'@type': 'ListItem', 'position': 1, 'name': CRUMB[lang], 'item': page_url(lang, 'home')},
@@ -357,7 +367,7 @@ def main():
         for lang in LANGS:
             alts = ''.join('    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>\n' % (l, page_url(l, page)) for l in LANGS)
             alts += '    <xhtml:link rel="alternate" hreflang="x-default" href="%s"/>\n' % page_url('en', page)
-            prio = '1.0' if page == 'home' and lang == 'en' else '0.9' if page == 'home' else '0.3' if page == 'legal' else '0.7' if page == 'collaborate' else '0.8'
+            prio = '1.0' if page == 'home' and lang == 'en' else '0.9' if page == 'home' else '0.3' if page == 'legal' else '0.7' if page == 'collaborate' or PAGES[page].get('kind') == 'article' else '0.8'
             urls.append('  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n    <priority>%s</priority>\n%s  </url>' % (page_url(lang, page), day, prio, alts))
     (OUT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
