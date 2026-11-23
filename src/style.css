@@ -516,3 +516,13 @@ html:not(.js) .brief{display:none}
 .clientq{margin:28px 0 0;background:#fff;border:1px solid var(--line);border-inline-start:5px solid var(--rose-ink);border-radius:20px;padding:22px 26px}
 .clientq blockquote{margin:0;font:600 clamp(1.1rem,2.4vw,1.45rem)/1.7 var(--head);color:var(--deep)}
 .clientq figcaption{margin-top:10px;color:var(--mute);font-size:.92rem}
+
+/* project filters + badges */
+.pfilters{display:none;gap:10px;flex-wrap:wrap;margin:-14px 0 26px}
+.js .pfilters{display:flex}
+.pfilters button{font:inherit;font-weight:600;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--deep);border-radius:99px;padding:7px 18px;transition:background .25s,color .25s}
+.pfilters button:hover{background:var(--blush)}
+.pfilters button.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+.pcard[hidden]{display:none}
+.pbadge{position:absolute;inset-inline-start:30px;top:30px;background:#fff;color:var(--rose-ink);font:700 .78rem var(--head);border-radius:99px;padding:5px 12px;max-width:calc(100% - 120px)}
+.pcard:hover .pbadge{background:var(--rose);color:var(--deep)}
