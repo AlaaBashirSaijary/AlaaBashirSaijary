@@ -155,3 +155,22 @@
   });
   update();
 })();
+
+/* project filters */
+(function () {
+  var bar = document.querySelector('.pfilters');
+  if (!bar) return;
+  bar.hidden = false;
+  var cards = document.querySelectorAll('.pgrid .pcard[data-cat]');
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-f]');
+    if (!b) return;
+    var f = b.getAttribute('data-f');
+    bar.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    cards.forEach(function (c) {
+      var show = f === 'all' || c.getAttribute('data-cat') === f;
+      c.hidden = !show;
+      if (show) c.classList.add('in');
+    });
+  });
+})();
