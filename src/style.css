@@ -526,3 +526,24 @@ html:not(.js) .brief{display:none}
 .pcard[hidden]{display:none}
 .pbadge{position:absolute;inset-inline-start:30px;top:30px;background:#fff;color:var(--rose-ink);font:700 .78rem var(--head);border-radius:99px;padding:5px 12px;max-width:calc(100% - 120px)}
 .pcard:hover .pbadge{background:var(--rose);color:var(--deep)}
+
+/* case studies */
+.casehead{padding-bottom:20px}
+.casefacts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0 8px}
+.cf{background:var(--blush);border-radius:18px;padding:18px 20px;display:grid;gap:4px}
+.cf b{font:800 1.3rem var(--head);color:var(--deep)}
+.cf span{color:var(--mute);font-size:.92rem}
+.casebody{max-width:860px}
+.casebody p{color:var(--ink);line-height:1.85;font-size:1.05rem}
+.decs{display:grid;gap:16px;margin-top:22px}
+.dec{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 26px;position:relative;padding-inline-start:84px}
+.dec .n{position:absolute;inset-inline-start:24px;top:20px;font:800 1.7rem var(--head);color:var(--rose)}
+.dec h3{color:var(--deep);margin-bottom:6px}
+.dec p{color:var(--mute);font-size:1rem;line-height:1.75}
+.caselinks{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.casebody .checks{margin-top:16px}
+.casecta{margin-top:10px}
+.casebar{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;align-items:center}
+.casebar>span{color:var(--mute);font-weight:600}
+@media(max-width:1000px){.casefacts{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.casefacts{grid-template-columns:1fr}.dec{padding-inline-start:26px;padding-top:56px}.dec .n{top:16px}}
