@@ -547,3 +547,6 @@ html:not(.js) .brief{display:none}
 .casebar>span{color:var(--mute);font-weight:600}
 @media(max-width:1000px){.casefacts{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.casefacts{grid-template-columns:1fr}.dec{padding-inline-start:26px;padding-top:56px}.dec .n{top:16px}}
+
+.caseshots{grid-template-columns:repeat(3,1fr);max-width:760px;margin-top:26px}
+@media(max-width:700px){.caseshots{grid-template-columns:1fr 1fr}}
