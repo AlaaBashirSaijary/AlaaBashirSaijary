@@ -70,6 +70,11 @@ PAGES['case_manhaj'] = {'path': 'work/manhaj-hayah/', 'src': 'case_manhaj.html',
            'How I built Manhaj Hayah, a free offline Android app for the Quran, prayer times and azkar with no ads, no accounts and no trackers. Built with Flutter, 500+ active users.'),
     'ar': ('دراسة حالة: تطبيق منهج حياة للقرآن والصلاة دون إنترنت | ألاء سيجري',
            'كيف بنيتُ منهج حياة، تطبيق أندرويد مجاني يعمل دون إنترنت للقرآن ومواقيت الصلاة والأذكار، بلا إعلانات ولا حسابات ولا متتبّعات. بُني بـ Flutter ولأكثر من 500 مستخدم نشط.')}}
+PAGES['case_clinic'] = {'path': 'work/aayadati/', 'src': 'case_clinic.html', 'og': 'og-clinic', 'kind': 'article', 'meta': {
+    'en': ('Case Study: Aayadati Offline Clinic Management App | Alaa Saijary',
+           'How I built Aayadati: an offline Arabic clinic app with local data, a customizable exam form for any specialty, Arabic PDF prescriptions and safety nets around the data. Built with Flutter.'),
+    'ar': ('دراسة حالة: تطبيق عيادتي لإدارة العيادات دون إنترنت | ألاء سيجري',
+           'كيف بنيتُ عيادتي: تطبيق عربي للعيادات يعمل دون إنترنت ببيانات محلية ونموذج فحص يناسب كل اختصاص ووصفات PDF عربية وشبكات أمان للبيانات. بُني بـ Flutter.')}}
 CRUMB = {'en': 'Home', 'ar': 'الرئيسية'}
 CLINIC_NAME = {'en': 'Aayadati: clinic management app', 'ar': 'عيادتي: تطبيق إدارة العيادات'}
 PAGE_NAME = {'clinic': CLINIC_NAME, 'school': {'en': 'Education ERP: school management system', 'ar': 'نظام Education ERP لإدارة المدارس'}}
