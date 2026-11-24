@@ -18,6 +18,7 @@ SITE = 'https://alaabashirsaijary.github.io/AlaaBashirSaijary/'
 LINKEDIN = 'https://www.linkedin.com/in/alaa-basher-saijary-b48002378/'
 GITHUB = 'https://github.com/AlaaBashirSaijary'
 INSTAGRAM = 'https://www.instagram.com/alaacoder/'
+MOSTAQL = 'https://mostaql.com/u/AlaaSaijary'
 FACEBOOK = 'https://www.facebook.com/share/1DXeFyQ8Qy/'
 MANHAJ = 'https://alaabashirsaijary.github.io/manhaj-hayah/'
 CLINIC_SITE = 'https://alaabashirsaijary.github.io/ClinicManagerFlutter/'
@@ -202,7 +203,7 @@ def json_ld(soup, lang, page):
              'inLanguage': ['en', 'ar'], 'publisher': person},
             {'@type': 'Person', '@id': SITE + '#person', 'name': 'Alaa Bashir Saijary', 'alternateName': 'ألاء بشير سيجري',
              'jobTitle': ROLE[lang], 'url': SITE, 'description': desc,
-             'sameAs': [LINKEDIN, GITHUB, INSTAGRAM, FACEBOOK, MANHAJ, CLINIC_SITE],
+             'sameAs': [LINKEDIN, GITHUB, INSTAGRAM, FACEBOOK, MOSTAQL, MANHAJ, CLINIC_SITE],
              'knowsAbout': ['Flutter', 'Dart', 'Laravel', 'PHP', 'Angular', 'React', 'Python', 'Firebase', 'REST APIs',
                             'Cybersecurity', 'Mobile app development'],
              'knowsLanguage': ['Arabic', 'English', 'Turkish'],
