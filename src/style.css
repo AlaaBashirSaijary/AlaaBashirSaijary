@@ -550,3 +550,6 @@ html:not(.js) .brief{display:none}
 
 .caseshots{grid-template-columns:repeat(3,1fr);max-width:760px;margin-top:26px}
 @media(max-width:700px){.caseshots{grid-template-columns:1fr 1fr}}
+.guide h2{font-size:clamp(1.4rem,3vw,1.8rem);margin:34px 0 10px;color:var(--deep)}
+.guide h2:first-child{margin-top:0}
+.guide .checks{margin:10px 0 6px}

@@ -75,6 +75,12 @@ PAGES['case_clinic'] = {'path': 'work/aayadati/', 'src': 'case_clinic.html', 'og
            'How I built Aayadati: an offline Arabic clinic app with local data, a customizable exam form, Arabic PDF prescriptions and data safety nets. Flutter.'),
     'ar': ('دراسة حالة: عيادتي لإدارة العيادات | ألاء سيجري',
            'كيف بنيتُ عيادتي: تطبيق عربي للعيادات يعمل دون إنترنت ببيانات محلية ونموذج فحص يناسب كل اختصاص ووصفات PDF عربية وشبكات أمان للبيانات. بُني بـ Flutter.')}}
+PAGES['guide_data'] = {'path': 'guides/protect-patient-data/', 'src': 'guide_data.html', 'og': 'og-clinic', 'kind': 'article', 'meta': {
+    'en': ('How to Protect Patient Data in an Offline Clinic App', 'A practical checklist for doctors: device and app locks, staff accounts, backups outside the device, careful sharing and honest software.'),
+    'ar': ('كيف أحمي بيانات مرضاي في برنامج عيادة دون إنترنت', 'قائمة عملية للأطباء: أقفال الجهاز والتطبيق وحسابات الموظفين ونسخ احتياطي خارج الجهاز ومشاركة حذرة واختيار برنامج صريح بشأن حدوده.')}}
+PAGES['guide_paper'] = {'path': 'guides/paper-to-clinic-app/', 'src': 'guide_paper.html', 'og': 'og-clinic', 'kind': 'article', 'meta': {
+    'en': ('From Paper Notebook to Clinic Program: A Practical Plan', 'A seven-step plan to move a working clinic from a paper notebook to a clinic program safely: import lists, exam forms, parallel run, training.'),
+    'ar': ('من دفتر الورق إلى برنامج العيادة: خطة عملية', 'خطة من سبع خطوات لنقل عيادة تعمل من الدفتر الورقي إلى برنامج عيادة بأمان: ما يُنقل والاستيراد ونموذج الفحص والتشغيل المتوازي والأقفال والتدريب.')}}
 CRUMB = {'en': 'Home', 'ar': 'الرئيسية'}
 CLINIC_NAME = {'en': 'Aayadati: clinic management app', 'ar': 'عيادتي: تطبيق إدارة العيادات'}
 PAGE_NAME = {'clinic': CLINIC_NAME, 'school': {'en': 'Education ERP: school management system', 'ar': 'نظام Education ERP لإدارة المدارس'}}
@@ -220,6 +226,11 @@ def json_ld(soup, lang, page):
                 {'@type': 'ListItem', 'position': 2, 'name': title.split(' | ')[0], 'item': url}]},
             {'@type': 'WebPage', '@id': url + '#page', 'url': url, 'name': title, 'description': desc, 'inLanguage': lang,
              'isPartOf': {'@id': SITE + '#website'}}]
+        if PAGES[page]['path'].startswith('guides/'):
+            graph.append({'@type': 'Article', 'headline': title, 'description': desc, 'inLanguage': lang, 'url': url,
+                          'datePublished': '2026-11-24', 'dateModified': '2026-11-24',
+                          'author': {'@type': 'Person', '@id': SITE + '#person', 'name': 'Alaa Bashir Saijary'},
+                          'mainEntityOfPage': url})
     else:
         feats = [text(h) for h in soup.select('#features .fcard h3')]
         app = dict(APPS[page])
