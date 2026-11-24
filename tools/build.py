@@ -34,46 +34,46 @@ PAGES = {
         'en': ('Alaa Saijary | Flutter & Laravel Developer in Syria',
                'Computer engineer and mobile app developer in Syria. Flutter apps and Laravel web solutions: Lirati, Manhaj Hayah and Aayadati. See my work and download my CV.'),
         'ar': ('ألاء سيجري | مطوّرة تطبيقات Flutter وLaravel في سوريا',
-               'ألاء سيجري مهندسة حاسوب ومطوّرة تطبيقات موبايل من سوريا. أبني تطبيقات Flutter وحلول ويب بـ Laravel مثل Lirati ومنهج حياة وعيادتي. اطّلع على أعمالي وسيرتي الذاتية.')}},
+               'ألاء سيجري مهندسة حاسوب ومطوّرة تطبيقات موبايل من سوريا. أبني تطبيقات Flutter وحلول Laravel مثل Lirati ومنهج حياة وعيادتي. اطّلع على أعمالي وسيرتي.')}},
     'clinic': {'path': 'clinic-manager/', 'src': 'clinic.html', 'og': 'og-clinic', 'kind': 'product',
                'wa': {'en': "Hello, I'd like to know more about the Aayadati clinic app and try the free version.",
                       'ar': 'مرحباً، أريد معرفة المزيد عن تطبيق عيادتي وتجربة النسخة المجانية.'}, 'meta': {
         'en': ('Aayadati: Offline Clinic Management App for Doctors',
-               'Aayadati is a clinic management app that works fully offline: patient records, appointments, prescriptions and reports in Arabic. One-time payment, 14-day free trial.'),
-        'ar': ('عيادتي: تطبيق إدارة عيادات طبية يعمل بلا إنترنت',
+               'Aayadati is a clinic app that works fully offline: patient records, appointments, prescriptions and reports in Arabic. One-time payment, 14-day free trial.'),
+        'ar': ('عيادتي: برنامج إدارة عيادات طبية يعمل بلا إنترنت',
                'عيادتي تطبيق لإدارة العيادات الطبية يعمل بلا إنترنت: سجلات المرضى والمواعيد والوصفات والتقارير بواجهة عربية. دفعة واحدة بلا اشتراك وتجربة مجانية 14 يوماً.')}},
 }
 PAGES['school'] = {'path': 'school-management-system/', 'src': 'school.html', 'og': 'og-school', 'kind': 'product',
                    'wa': {'en': 'Hello, I would like a quote for the Education ERP school management system.',
                           'ar': 'مرحباً، أريد عرض سعر لنظام Education ERP لإدارة المدارس.'}, 'meta': {
-    'en': ('Education ERP: School Management System with QR Attendance and Fees',
-           'Education ERP is a school management system: QR attendance, grades and report cards, fees and receipts, WhatsApp/SMS parent alerts and timetables. Arabic and English, with a mobile app and live demo.'),
-    'ar': ('Education ERP: نظام إدارة مدارس بحضور QR وأقساط وإشعارات للأهل',
-           'Education ERP نظام لإدارة المدارس: حضور بالـ QR، علامات وشهادات، أقساط وإيصالات، إشعارات واتساب/SMS لأولياء الأمور وجداول حصص. عربي وإنجليزي مع تطبيق موبايل وعرض تفاعلي.')}}
+    'en': ('Education ERP: School Management System with QR Attendance',
+           'School management system: QR attendance, grades, fees, WhatsApp/SMS parent alerts and timetables. Arabic and English, with a mobile app and live demo.'),
+    'ar': ('Education ERP: نظام إدارة مدارس بحضور QR وأقساط',
+           'نظام لإدارة المدارس: حضور بالـ QR وعلامات وأقساط وإشعارات واتساب/SMS لأولياء الأمور وجداول حصص. عربي وإنجليزي مع تطبيق موبايل وعرض تفاعلي.')}}
 PAGES['legal'] = {'path': 'privacy/', 'src': 'legal.html', 'og': 'og-home', 'meta': {
     'en': ('Privacy Policy & Terms of Use | Alaa Saijary',
            'How this website and the Aayadati, Education ERP and Manhaj Hayah apps handle data, plus the terms of use and licence for my software.'),
     'ar': ('سياسة الخصوصية وشروط الاستخدام | ألاء سيجري',
            'كيف يتعامل هذا الموقع وتطبيقات عيادتي وEducation ERP ومنهج حياة مع البيانات، مع شروط الاستخدام والترخيص لبرامجي.')}}
 PAGES['collaborate'] = {'path': 'collaborate/', 'src': 'collaborate.html', 'og': 'og-home', 'meta': {
-    'en': ('Collaborate | Research & Industry Partnerships | Alaa Saijary',
-           'Offline-first, Arabic-first software for health and education. Research partnerships, pilots, licensing and custom builds with Alaa Saijary, computer engineer and M.Sc. candidate.'),
+    'en': ('Collaborate: Research & Industry | Alaa Saijary',
+           'Offline-first, Arabic-first software for health and education. Research partnerships, pilots, licensing and custom builds with a computer engineer.'),
     'ar': ('تعاون معي | شراكات بحثية وصناعية | ألاء سيجري',
            'برمجيات تعمل دون إنترنت وبالعربية أولاً للصحة والتعليم. شراكات بحثية وتجارب وترخيص وحلول مخصصة مع ألاء سيجري، مهندسة حاسوب وطالبة ماجستير.')}}
 PAGES['case_school'] = {'path': 'work/education-erp/', 'src': 'case_school.html', 'og': 'og-school', 'kind': 'article', 'meta': {
-    'en': ('Case Study: Education ERP School Management System | Alaa Saijary',
-           'How I designed Education ERP: Arabic-first, four roles, a separate copy and database per school, and parent messages through a logged queue. Built with Laravel 11 and Livewire.'),
+    'en': ('Education ERP Case Study | Alaa Saijary',
+           'How I designed Education ERP: Arabic-first, four roles, a separate copy and database per school, and logged parent messages. Laravel 11 and Livewire.'),
     'ar': ('دراسة حالة: نظام Education ERP لإدارة المدارس | ألاء سيجري',
            'كيف صمّمتُ Education ERP: عربي أولاً وأربعة أدوار ونسخة وقاعدة بيانات منفصلة لكل مدرسة ورسائل للأهل عبر طابور مسجّل. بُني بـ Laravel 11 وLivewire.')}}
 PAGES['case_manhaj'] = {'path': 'work/manhaj-hayah/', 'src': 'case_manhaj.html', 'og': 'og-home', 'kind': 'article', 'meta': {
-    'en': ('Case Study: Manhaj Hayah Offline Quran and Prayer App | Alaa Saijary',
-           'How I built Manhaj Hayah, a free offline Android app for the Quran, prayer times and azkar with no ads, no accounts and no trackers. Built with Flutter, 500+ active users.'),
-    'ar': ('دراسة حالة: تطبيق منهج حياة للقرآن والصلاة دون إنترنت | ألاء سيجري',
-           'كيف بنيتُ منهج حياة، تطبيق أندرويد مجاني يعمل دون إنترنت للقرآن ومواقيت الصلاة والأذكار، بلا إعلانات ولا حسابات ولا متتبّعات. بُني بـ Flutter ولأكثر من 500 مستخدم نشط.')}}
+    'en': ('Manhaj Hayah Case Study: Offline Quran App | Alaa Saijary',
+           'How I built Manhaj Hayah, a free offline Android app for the Quran, prayer times and azkar with no ads or trackers. Flutter, 500+ active users.'),
+    'ar': ('دراسة حالة: تطبيق منهج حياة للقرآن | ألاء سيجري',
+           'كيف بنيتُ منهج حياة، تطبيق أندرويد مجاني يعمل دون إنترنت للقرآن ومواقيت الصلاة والأذكار، بلا إعلانات ولا متتبّعات. Flutter وأكثر من 500 مستخدم.')}}
 PAGES['case_clinic'] = {'path': 'work/aayadati/', 'src': 'case_clinic.html', 'og': 'og-clinic', 'kind': 'article', 'meta': {
-    'en': ('Case Study: Aayadati Offline Clinic Management App | Alaa Saijary',
-           'How I built Aayadati: an offline Arabic clinic app with local data, a customizable exam form for any specialty, Arabic PDF prescriptions and safety nets around the data. Built with Flutter.'),
-    'ar': ('دراسة حالة: تطبيق عيادتي لإدارة العيادات دون إنترنت | ألاء سيجري',
+    'en': ('Aayadati Case Study: Offline Clinic App | Alaa Saijary',
+           'How I built Aayadati: an offline Arabic clinic app with local data, a customizable exam form, Arabic PDF prescriptions and data safety nets. Flutter.'),
+    'ar': ('دراسة حالة: عيادتي لإدارة العيادات | ألاء سيجري',
            'كيف بنيتُ عيادتي: تطبيق عربي للعيادات يعمل دون إنترنت ببيانات محلية ونموذج فحص يناسب كل اختصاص ووصفات PDF عربية وشبكات أمان للبيانات. بُني بـ Flutter.')}}
 CRUMB = {'en': 'Home', 'ar': 'الرئيسية'}
 CLINIC_NAME = {'en': 'Aayadati: clinic management app', 'ar': 'عيادتي: تطبيق إدارة العيادات'}
